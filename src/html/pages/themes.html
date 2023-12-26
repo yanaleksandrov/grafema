@@ -1,0 +1,115 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+		<form class="p-4" action="." method="get" autocomplete="off">
+			<div class="pb-4 bb">
+				<button type="submit" class="btn btn-primary btn-animated w-100" data-txt="Max size: 64Mb"><i class="icon-upload"></i> Add new plugin</button>
+				<div class="mt-2 t-muted t-hint ta-center">Upload or drag and drop files</div>
+			</div>
+			<div class="py-3">
+				<div class="t-hint t-muted fw-400">Search</div>
+				<div class="mt-2">
+					<input type="search" name="search" placeholder="e.g. image.png">
+				</div>
+			</div>
+			<div class="py-3">
+				<div class="d-flex aic t-hint t-muted mb-3 fw-400">
+					<span>Categories</span><span class="ml-auto">Choose all</span>
+				</div>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>E-commerce</span><span class="badge ml-auto bg-blue-lt">6</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Analytics</span><span class="badge ml-auto bg-blue-lt">56</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Blocks</span><span class="badge ml-auto bg-blue-lt">79</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Security</span><span class="badge ml-auto bg-blue-lt">21</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>SEO</span><span class="badge ml-auto bg-blue-lt">14</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Social</span><span class="badge ml-auto bg-blue-lt">26</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Content</span><span class="badge ml-auto bg-blue-lt">139</span>
+				</label>
+			</div>
+		</form>
+	</div>
+
+	<div class="jb__body">
+
+		<div class="d-flex bg-muted-lt aic p-4 pb-0">
+			<div class="mr-2">
+				<div class="t-muted t-hint">Themes define the design and appearance</div>
+				<h4 class="m-0">Add Themes</h4>
+			</div>
+			<div class="ml-auto">
+				<button class="btn"><i class="icon-folder-open"></i> Add new plugin</button>
+			</div>
+		</div>
+
+		<div class="themes">
+			<div class="themes__item">
+				<div class="themes__img">
+					<img src="https://placeimg.com/300/150/hello" width="300" height="150">
+				</div>
+				<div class="themes__bottom">
+					<h5>Classic Theme with long title</h5>
+					<div class="themes__rating">
+						<i class="icon icon-star-full"></i> <span class="themes__score">5.0</span> <span class="themes__reviews">[127]</span>
+					</div>
+					<div class="themes__desc">Multipurpose theme for blog, portfolio, buisness and e-commerce</div>
+				</div>
+			</div>
+			<div class="themes__item">
+				<div class="themes__img">
+					<img src="https://placeimg.com/300/150/time" width="300" height="150">
+				</div>
+				<div class="themes__bottom">
+					<h5>Classic Theme</h5>
+					<div class="themes__rating">
+						<i class="icon icon-star-full"></i> <span class="themes__score">5.0</span> <span class="themes__reviews">[127]</span>
+					</div>
+					<div class="themes__desc">For a magazine, news portal or personal blog</div>
+				</div>
+			</div>
+			<div class="themes__item">
+				<div class="themes__img">
+					<img src="https://placeimg.com/300/150/architect" width="300" height="150">
+				</div>
+				<div class="themes__bottom">
+					<h5>Classic Theme</h5>
+					<div class="themes__rating">
+						<i class="icon icon-star-full"></i> <span class="themes__score">5.0</span> <span class="themes__reviews">[127]</span>
+					</div>
+					<div class="themes__desc">Multipurpose theme for blog, portfolio, buisness and e-commerce</div>
+				</div>
+			</div>
+			<div class="themes__item">
+				<div class="themes__img">
+					<img src="https://placeimg.com/300/150/peoples" width="300" height="150">
+				</div>
+				<div class="themes__bottom">
+					<h5>Classic Theme</h5>
+					<div class="themes__rating">
+						<i class="icon icon-star-full"></i> <span class="themes__score">5.0</span> <span class="themes__reviews">[127]</span>
+					</div>
+					<div class="themes__desc">Multipurpose theme for blog, portfolio, buisness and e-commerce</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

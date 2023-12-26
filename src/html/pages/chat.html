@@ -1,0 +1,144 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__body">
+		<div class="chat">
+			<div class="chat__users">
+				<div class="chat__title">
+					<h3>Chats <a href="#" class="badge ml-auto">Start New</a></h3>
+					<input type="search" placeholder="Search user">
+				</div>
+				<div class="chat__user">
+					<img class="chat__userpic" src="https://placeimg.com/37/37/people" width="38" height="38" alt="John Doe">
+					<div class="chat__userdata">
+						<div class="chat__username">John Doe</div>
+						<div class="chat__usermsg">Hi! Our deadlines is very important thing.</div>
+					</div>
+				</div>
+				<div class="chat__user">
+					<img class="chat__userpic" src="https://placeimg.com/36/36/people" width="38" height="38" alt="John Doe">
+					<div class="chat__userdata">
+						<div class="chat__username">Elizabet Jakenson</div>
+						<div class="chat__usermsg">Well, talk about design ideas</div>
+					</div>
+				</div>
+				<div class="chat__user">
+					<img class="chat__userpic" src="https://placeimg.com/38/38/people" width="38" height="38" alt="John Doe">
+					<div class="chat__userdata">
+						<div class="chat__username">Jakob Batalone</div>
+						<div class="chat__usermsg">Do not make this anymore</div>
+					</div>
+				</div>
+				<div class="chat__user">
+					<img class="chat__userpic" src="https://placeimg.com/39/39/people" width="39" height="39" alt="John Doe">
+					<div class="chat__userdata">
+						<div class="chat__username">John Smith</div>
+						<div class="chat__usermsg">How can I be a happy?</div>
+					</div>
+				</div>
+			</div>
+			<div class="chat__main">
+				<div class="chat__messages" x-data x-init="$el.scrollTop = $el.scrollHeight;">
+					<div class="chat__message">
+						<div class="chat__comment">Hey, Emmie. Can we got a quick call?</div>
+						<div class="chat__date">11:56</div>
+					</div>
+					<div class="chat__message nth">
+						<div class="chat__comment">Hey, Jakob. Sure, but now I'm busy rn.</div>
+						<div class="chat__date">11:58</div>
+					</div>
+					<div class="chat__message">
+						<div class="chat__comment">Okay, no problem. I will briefly describe the situation. I am trying to connect the application to your system, but it throws an error.</div>
+						<div class="chat__date">12:03</div>
+					</div>
+					<div class="chat__message">
+						<div class="chat__comment">Maybe I did something wrong.</div>
+						<div class="chat__date">12:05</div>
+					</div>
+					<div class="chat__message nth">
+						<div class="chat__comment">Jakob, I see that you have successfully connected. The problem is that you need to specify the activation key in the settings. Then everything will work :)</div>
+						<div class="chat__date">12:33</div>
+					</div>
+					<div class="chat__message">
+						<div class="chat__comment">Yes, you're right. Thanks for the help.</div>
+						<div class="chat__date">12:47</div>
+					</div>
+				</div>
+				<form class="chat__form" action="" method="post">
+					<img src="https://placeimg.com/36/36/people" width="36" height="36" alt="John Doe">
+					<textarea name="comment" placeholder="Write your comment here..." x-data="textarea" x-bind="resize"></textarea>
+					<input type="hidden" name="user_id" value="1">
+					<button class="btn btn-primary icon-send" type="submit"></button>
+				</form>
+			</div>
+			<div class="chat__meta">
+				<div class="chat__title">
+					<div class="chat__user">
+						<img class="chat__userpic" src="https://placeimg.com/37/37/people" width="38" height="38" alt="John Doe">
+						<div class="chat__userdata">
+							<div class="chat__usermsg"><span>Chat with</span></div>
+							<div class="chat__username"><h3>Emmie Bennett</h3></div>
+						</div>
+					</div>
+				</div>
+				<div class="chat__metabox">
+					<div class="chat__subtitle">
+						<h4>Files</h4>
+						<span>See all</span>
+					</div>
+					<div class="chat__file">
+						<div class="chat__filepic">
+							<i class="icon-folder-open"></i>
+						</div>
+						<div class="chat__filedata">
+							<div class="chat__filename">References.zip</div>
+							<div class="chat__filemsg">Oct 21, 2022 at 21:07</div>
+						</div>
+					</div>
+					<div class="chat__file">
+						<div class="chat__filepic">
+							<i class="icon-folder-open"></i>
+						</div>
+						<div class="chat__filedata">
+							<div class="chat__filename">Mockups.psd</div>
+							<div class="chat__filemsg">Sep 13, 2022 at 13:56</div>
+						</div>
+					</div>
+					<div class="chat__file">
+						<div class="chat__filepic">
+							<i class="icon-folder-open"></i>
+						</div>
+						<div class="chat__filedata">
+							<div class="chat__filename">Mockups.psd</div>
+							<div class="chat__filemsg">Sep 13, 2022 at 13:56</div>
+						</div>
+					</div>
+				</div>
+				<div class="chat__metabox">
+					<div class="chat__subtitle">
+						<h4>Shared links</h4>
+						<span>See all</span>
+					</div>
+					<div class="chat__file">
+						<div class="chat__filedata">
+							<div class="chat__filename"><a href="https://google.com" target="_blank">google.com</a></div>
+							<div class="chat__filemsg">Oct 21, 2022 at 21:07</div>
+						</div>
+					</div>
+					<div class="chat__file">
+						<div class="chat__filedata">
+							<div class="chat__filename"><a href="https://yandex.com" target="_blank">yandex.com</a></div>
+							<div class="chat__filemsg">Sep 13, 2022 at 13:56</div>
+						</div>
+					</div>
+					<div class="chat__file">
+						<div class="chat__filedata">
+							<div class="chat__filename"><a href="https://codyshop.ru" target="_blank">codyshop.ru</a></div>
+							<div class="chat__filemsg">Sep 13, 2022 at 13:56</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%= _.template(require('./../parts/footer.html').default)(data) %>

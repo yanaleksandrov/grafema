@@ -1,0 +1,96 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+
+	</div>
+
+	<div class="jb__body">
+		<div class="p-4">
+			<h2>Notifications</h2>
+			<div class="t-muted t-hint mb-4">lightweight inline messages</div>
+
+			<p>An inline message with a statuses like info, success, warning and error, that does not interrupt user actions. Is a lightweight signal, which, as a rule, does not imply working inside the notification block. For these purposes, use modal windows.</p>
+			<p>The notification will display in the upper right corner of the page. Often used in the following scenarios:</p>
+			<ul>
+				<li>Hints for the user</li>
+				<li>Successful or failed ajax request</li>
+				<li>System notifications: no internet connection, new notification in the chat and more</li>
+			</ul>
+			<h3>Usage</h3>
+			<p>To display notifications, add the following code once before the closing body tag.</p>
+			<pre x-highlight.js>import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {changeDetection} from '@demo/emulate/change-detection';
+import {encapsulation} from '@demo/emulate/encapsulation';
+
+@Component({
+    selector: 'tui-avatar-example-1',
+    templateUrl: './index.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class TuiAvatarExample1 {
+    avatar = 'https://ng-web-apis.github.io/dist/assets/images/web-api.svg';
+}</pre>
+				<pre x-highlight>&lt;div class=&quot;notice&quot; x-data&gt;
+	&lt;template x-for=&quot;(item, id) in $store.notice.items&quot;&gt;
+		&lt;div class=&quot;notice__item&quot; :class=&quot;item.classes()&quot;&gt;
+			&lt;div class=&quot;notice__msg&quot; x-html=&quot;item.message&quot;&gt;&lt;/div&gt;
+			&lt;div class=&quot;notice__close&quot; x-show=&quot;item.closable&quot; :style=&quot;`--anim:${item.anim}`&quot; @click=&quot;$store.notice.close(id)&quot;&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/template&gt;
+&lt;/div&gt;</pre>
+			<h3>Basic</h3>
+			<p>Displays only the content of the message, and by default will be closed after <code>4s</code>.</p>
+			<div class="sample">
+				<div class="sample__item">
+
+					<button class="btn" @click="$store.notice.info('This is a notification that will be closed after 4s automatically.')">Click me</button>
+
+					<!-- add this before close </body> tag -->
+					<div class="notice" x-data>
+						<template x-for="(item, id) in $store.notice.items">
+							<div class="notice__item" :class="item.classes()">
+								<div class="notice__msg" x-html="item.message"></div>
+								<div class="notice__close" x-show="item.closable" :style="`--anim:${item.anim}`" @click="$store.notice.close(id)"></div>
+							</div>
+						</template>
+					</div>
+
+					<button class="btn" @click="$notice.notify('Info notice');">Info</button>
+					<div class="notices" x-data>
+						<template x-for="item in $notice.items">
+							<p x-text="item"></p>
+						</template>
+					</div>
+
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>Types</h3>
+			<p>There are four type of notification: <code>info</code>, <code>success</code>, <code>error</code>, <code>warning</code></p>
+			<div class="sample">
+				<div class="sample__item">
+
+					<button class="btn" @click="$store.notice.info('info')">info</button>
+					<button class="btn" @click="$store.notice.success('🔥 Success!<br>This is good massage from thumblarningbongdertsgtrgtrvsfgtrgbtyfegtrgrgrthfertfrtegtrgvtrgtrggtrgg')">success</button>
+					<button class="btn" @click="$store.notice.warning('warning')">warning</button>
+					<button class="btn" @click="$store.notice.error('error')">error</button>
+
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>TO DO: fire after ajax</h3>
+			<p>An inline message with a type (info, success, warning, error) that does not interrupt user actions.</p>
+			<div class="sample">
+				<div class="sample__item">
+
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

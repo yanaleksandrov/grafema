@@ -1,0 +1,17 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__body">
+		<div class="p-4">
+			<h1>ColorPicker</h1>
+			<h2>Type "color"</h2>
+			<p>ColorPicker allows to pick a color and its transparency.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<input type="text" placeholder="Pick a color" value="#DC227A" x-bind="colorist">
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

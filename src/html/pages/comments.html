@@ -1,0 +1,169 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+		<form class="p-4" action="." method="get" autocomplete="off">
+			<div class="pb-3">
+				<div class="t-hint t-muted fw-400">Search comments</div>
+				<div class="mt-2">
+					<input type="search" name="search" placeholder="e.g. comment text">
+				</div>
+			</div>
+			<div class="py-3">
+				<div class="d-flex aic t-hint t-muted mb-3 fw-400">
+					<span>Types</span><span class="ml-auto">Select all</span>
+				</div>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Comments</span><span class="badge ml-auto">18</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Reviews</span><span class="badge ml-auto">7</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Support</span><span class="badge ml-auto">123</span>
+				</label>
+			</div>
+			<div class="py-3">
+				<div class="d-flex aic t-hint t-muted mb-3 fw-400">
+					<span>Comments</span><span class="ml-auto">Deselect all</span>
+				</div>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Mine</span><span class="badge ml-auto bg-blue-lt">21</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Pending</span><span class="badge ml-auto bg-blue-lt">0</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Approved</span><span class="badge ml-auto bg-blue-lt">254</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Spam</span><span class="badge ml-auto bg-blue-lt">5</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Trash</span><span class="badge ml-auto bg-blue-lt">3</span>
+				</label>
+			</div>
+			<div class="pt-2">
+				<button type="submit" class="btn w-100"><i class="icon-send"></i>Find comments</button>
+			</div>
+		</form>
+	</div>
+	<div class="jb__body">
+
+		<div class="d-flex bg-muted-lt aic p-4 pb-0">
+			<div class="mr-2">
+				<h4 class="m-0">Posts</h4>
+				<div class="t-muted t-hint">Data about all registered users</div>
+			</div>
+			<div class="ml-auto">
+				<button class="btn"><i class="icon-folder-open"></i> Add new user</button>
+			</div>
+		</div>
+
+		<div class="p-0">
+			<table class="table" x-data="table">
+				<thead>
+					<tr>
+						<th class="cb"><input type="checkbox" x-bind="trigger"></th>
+						<th></th>
+						<th>Title</th>
+						<th>Author</th>
+						<th>Categories</th>
+						<th>Date</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="cb"><input type="checkbox" name="post[]" x-bind="switcher"></td>
+						<td><img src="https://via.placeholder.com/100x100?text=IMG"></td>
+						<td><a href="#" class="strong">How to make WordPress theme for Evato Market</a> — Draft</td>
+						<td><a href="#">JakeAlexandrovpetrenko</a></td>
+						<td><a href="#">VeryLongCategoryOrTag</a>, <a href="#">WordPress</a></td>
+						<td>Nov 24, 2021 at 12:30</td>
+						<td><i class="dashicons dashicons-trash"></i></td>
+					</tr>
+					<tr>
+						<td class="cb"><input type="checkbox" name="post[]" x-bind="switcher"></td>
+						<td><img src="https://via.placeholder.com/100x100?text=IMG"></td>
+						<td><a href="#" class="strong">How to make WordPress theme for Evato Market</a> — Draft</td>
+						<td><a href="#">WordPress Team</a></td>
+						<td><a href="#">—</td>
+						<td>Nov 24, 2021 at 12:30</td>
+						<td><i class="dashicons dashicons-trash"></i></td>
+					</tr>
+					<tr>
+						<td class="cb"><input type="checkbox" name="post[]" x-bind="switcher"></td>
+						<td><img src="https://via.placeholder.com/100x100?text=IMG"></td>
+						<td><a href="#" class="strong">How to make WordPress theme for Evato Market</a> — Draft</td>
+						<td><a href="#">Helen</a></td>
+						<td><a href="#"><a href="#">WordPress</a></td>
+						<td>Nov 24, 2021 at 12:30</td>
+						<td><i class="dashicons dashicons-trash"></i></td>
+					</tr>
+					<tr>
+						<td class="cb"><input type="checkbox" name="post[]" x-bind="switcher"></td>
+						<td><img src="https://via.placeholder.com/100x100?text=IMG"></td>
+						<td><a href="#" class="strong">How to make WordPress theme for Evato Market</a> — Draft</td>
+						<td><a href="#">Jake Alex</a></td>
+						<td><a href="#"><a href="#">Envato</a></td>
+						<td>Nov 24, 2021 at 12:30</td>
+						<td><i class="dashicons dashicons-trash"></i></td>
+					</tr>
+					<tr>
+						<td class="cb"><input type="checkbox" name="post[]" x-bind="switcher"></td>
+						<td><img src="https://via.placeholder.com/100x100?text=IMG"></td>
+						<td><a href="#" class="strong">How to make WordPress theme for Evato Market</a> — Draft</td>
+						<td><a href="#">Jake Alex</a></td>
+						<td><a href="#"><a href="#">Envato</a></td>
+						<td>Nov 24, 2021 at 12:30</td>
+						<td><i class="dashicons dashicons-trash"></i></td>
+					</tr>
+					<tr>
+						<td class="cb"><input type="checkbox" name="post[]" x-bind="switcher"></td>
+						<td><img src="https://via.placeholder.com/100x100?text=IMG"></td>
+						<td><a href="#" class="strong">How to make WordPress theme for Evato Market</a> — Draft</td>
+						<td><a href="#">Jake Alex</a></td>
+						<td><a href="#"><a href="#">Envato</a></td>
+						<td>Nov 24, 2021 at 12:30</td>
+						<td><i class="dashicons dashicons-trash"></i></td>
+					</tr>
+					<tr>
+						<td class="cb"><input type="checkbox" name="post[]" x-bind="switcher"></td>
+						<td><img src="https://via.placeholder.com/100x100?text=IMG"></td>
+						<td><a href="#" class="strong">How to make WordPress theme for Evato Market</a> — Draft</td>
+						<td><a href="#">Jake Alex</a></td>
+						<td><a href="#"><a href="#">Envato</a></td>
+						<td>Nov 24, 2021 at 12:30</td>
+						<td><i class="dashicons dashicons-trash"></i></td>
+					</tr>
+					<tr>
+						<td class="cb"><input type="checkbox" name="post[]" x-bind="switcher"></td>
+						<td><img src="https://via.placeholder.com/100x100?text=IMG"></td>
+						<td><a href="#" class="strong">How to make WordPress theme for Evato Market</a> — Draft</td>
+						<td><a href="#">Jake Alex</a></td>
+						<td><a href="#"><a href="#">Envato</a></td>
+						<td>Nov 24, 2021 at 12:30</td>
+						<td><i class="dashicons dashicons-trash"></i></td>
+					</tr>
+					<tr>
+						<td class="cb"><input type="checkbox" name="post[]" x-bind="switcher"></td>
+						<td><img src="https://via.placeholder.com/100x100?text=IMG"></td>
+						<td><a href="#" class="strong">How to make WordPress theme for Evato Market</a> — Draft</td>
+						<td><a href="#">Jake Alex</a></td>
+						<td><a href="#"><a href="#">Envato</a></td>
+						<td>Nov 24, 2021 at 12:30</td>
+						<td><i class="dashicons dashicons-trash"></i></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

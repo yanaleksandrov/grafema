@@ -1,0 +1,113 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+    <div class="jb__filter">
+
+    </div>
+
+    <div class="jb__body">
+        <div class="p-4">
+            <h2>Syntax highlight</h2>
+            <div class="t-muted t-hint mb-4">lightweight inline messages</div>
+
+            <p>Syntax highlighting is based on the <a href="https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+javadoclike+json&plugins=line-numbers" target="_blank">prism.js</a> library. In the current configuration supports <code>html</code>, <code>css</code>, <code>js</code>, and <code>json</code>. To get started, wrap the code in the <code>pre</code> tag and add the <code>x-highlight</code> directive.</p>
+
+            <h3 x-anchor>Usage</h3>
+            <p>The highlighting language is selected by adding a modifier, see the examples below.</p>
+            <div class="sample">
+                <div class="sample__item">
+                    <pre x-highlight.html>&lt;pre x-highlight.js&gt;import {FormControl, FormGroup} from '@angular/forms';
+
+export class LabelExample {
+    readonly testForm = new FormGroup({
+        testValue: new FormControl(),
+    });
+}&lt;/pre&gt;</pre>
+                </div>
+                <div class="sample__code">
+                </div>
+            </div>
+
+            <h3 x-anchor>HTML</h3>
+            <pre x-highlight.html>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;Title&lt;/title&gt;
+	&lt;link href=&quot;themes/prism.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+	&lt;style&gt;body {width: 500px;}&lt;/style&gt;
+
+	&lt;script type=&quot;application/javascript&quot;&gt;
+		function $init() {return true;}
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;!-- section start --&gt;
+	&lt;section id='main' class=&quot;wrapper&quot;&gt;Section content&lt;/section&gt;
+	&lt;!-- section end --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+            <h3 x-anchor>CSS</h3>
+            <pre x-highlight.css>@charset 'UTF-8';
+@import url(https://fonts.googleapis.com/css2?family=Jost);
+
+:root {
+	--bg: #fbfbfd;
+}
+
+body {
+	color: #F0F0F0;
+	background: var(--bg);
+	font-family: Jost, sans-serif;
+}
+
+@media ( max-width: 1024px ) {
+	body::after {
+		content: attr(data-title)
+	}
+}</pre>
+
+            <h3 x-anchor>JavaScript</h3>
+<!--            <pre x-highlight.js>function initHighlight( block, cls ) {-->
+<!--	try {-->
+<!--		if ( cls.search( /\bno\-highlight\b/ ) != -1 ) {-->
+<!--			return process( block, true, 0x0F ) + ` class="${cls}"`;-->
+<!--		}-->
+<!--	} catch ( e ) {-->
+<!--		/* handle exception */-->
+<!--	}-->
+<!--	for ( let i = 0; i < classes.length; i++ ) {-->
+<!--		if ( checkCondition( classes[i] ) === undefined ) {-->
+<!--			console.log( 'undefined' );-->
+<!--		}-->
+<!--	}-->
+<!--	return (-->
+<!--		&lt;div&gt;-->
+<!--			&lt;web-component&gt;{block}&lt;/web-component&gt;-->
+<!--		&lt;/div&gt;-->
+<!--	)-->
+<!--}-->
+<!--export initHighlight;</pre>-->
+
+            <h3 x-anchor>JSON</h3>
+            <pre x-highlight.json>[
+	{
+		'title': 'apples',
+		'count': [12000, 20000],
+		'description': {
+			'text': '...',
+			'sensitive': false
+		}
+	},
+	{
+		'title': 'oranges',
+		'count': [17500, null],
+		'description': {
+			'text': '...',
+			'sensitive': false
+		}
+	}
+]</pre>
+        </div>
+    </div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

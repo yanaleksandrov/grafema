@@ -1,0 +1,139 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+		<form class="p-4" action="." method="get" autocomplete="off">
+			<div class="pb-4 bb">
+				<button type="submit" class="btn btn-primary btn-animated w-100" data-txt="Max size: 64Mb"><i class="icon-upload"></i> Add new plugin</button>
+				<div class="mt-2 t-muted t-hint ta-center">Upload or drag and drop files</div>
+			</div>
+			<div class="py-3">
+				<div class="t-hint t-muted fw-400">Search</div>
+				<div class="mt-2">
+					<input type="search" name="search" placeholder="e.g. image.png">
+				</div>
+			</div>
+			<div class="py-3">
+				<div class="d-flex aic t-hint t-muted mb-3 fw-400">
+					<span>Categories</span><span class="ml-auto">Choose all</span>
+				</div>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>E-commerce</span><span class="badge ml-auto bg-blue-lt">6</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Analytics</span><span class="badge ml-auto bg-blue-lt">56</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Blocks</span><span class="badge ml-auto bg-blue-lt">79</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Security</span><span class="badge ml-auto bg-blue-lt">21</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>SEO</span><span class="badge ml-auto bg-blue-lt">14</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Social</span><span class="badge ml-auto bg-blue-lt">26</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Content</span><span class="badge ml-auto bg-blue-lt">139</span>
+				</label>
+			</div>
+		</form>
+	</div>
+	<div class="jb__body">
+		<div class="d-flex aic p-4 pb-0">
+			<div class="mr-2">
+				<div class="t-muted t-hint">Overview</div>
+				<h4 class="m-0">Tasks list</h4>
+			</div>
+			<div class="ml-auto">
+				<select x-data="slimselect">
+					<option value="best" selected="selected">Main project</option>
+					<option value="select">Second project</option>
+				</select>
+			</div>
+			<div class="ml-2">
+				<button class="btn"><i class="icon-folder-open"></i> Create new status</button>
+			</div>
+		</div>
+		<div class="kanban">
+			<div class="kanban__col">
+				<div class="kanban__title">To Do <span class="badge bg-azure-lt ml-auto">Add task</span> <span class="badge ml-2">3</span></div>
+				<div class="kanban__item">
+					<div class="kanban__name">
+						CEO plugin
+						<div class="kanban__meta">
+							<span><i class="icon-comments"></i> 4</span> <span><i class="icon-folder-open"></i> 4</span>
+						</div>
+					</div>
+					<div class="kanban__img">
+						<img src="https://placeimg.com/300/150/hello" width="300" height="150">
+					</div>
+					<div class="kanban__progress">
+						<div class="progress" max="100" x-data="progress(25, 1000)"></div>
+						<div class="t-muted t-hint mt-1 d-flex aic">Progress <span class="ml-auto">25%</span></div>
+					</div>
+					<div class="kanban__status">
+						<span class="badge bg-red-lt">High</span><span class="ml-auto t-muted t-hint">Due in 2 days</span>
+					</div>
+				</div>
+				<div class="kanban__item">
+					<div class="kanban__name">Translate backend</div>
+					<div class="kanban__progress">
+						<div class="progress" max="100" x-data="progress(75, 1000)"></div>
+						<div class="t-muted t-hint mt-1 d-flex aic">Progress <span class="ml-auto">75%</span></div>
+					</div>
+					<div class="kanban__status">
+						<span class="badge bg-orange-lt">Medium</span><span class="ml-auto t-muted t-hint">Due in 5 days</span>
+					</div>
+				</div>
+				<div class="kanban__item">
+					<div class="kanban__name">Make design</div>
+					<div class="kanban__progress">
+						<div class="progress" max="100" x-data="progress(96, 1000)"></div>
+						<div class="t-muted t-hint mt-1 d-flex aic">Progress <span class="ml-auto">96%</span></div>
+					</div>
+					<div class="kanban__status">
+						<span class="badge bg-teal-lt">Low</span><span class="ml-auto t-muted t-hint">Due in 7 days</span>
+					</div>
+				</div>
+			</div>
+			<div class="kanban__col">
+				<div class="kanban__title">In Progress <span class="badge ml-auto">1</span></div>
+				<div class="kanban__item">
+					<div class="kanban__name">Translate backend</div>
+					<div class="kanban__progress">
+						<div class="progress" max="100" x-data="progress(75, 1000)"></div>
+						<div class="t-muted t-hint mt-1 d-flex aic">Progress <span class="ml-auto">75%</span></div>
+					</div>
+					<div class="kanban__status">
+						<span class="badge bg-orange-lt">Medium</span><span class="ml-auto t-muted t-hint">Due in 5 days</span>
+					</div>
+				</div>
+			</div>
+			<div class="kanban__col">
+				<div class="kanban__title">Review <span class="badge ml-auto">0</span></div>
+			</div>
+			<div class="kanban__col">
+				<div class="kanban__title">Closed <span class="badge ml-auto">1</span></div>
+				<div class="kanban__item">
+					<div class="kanban__name">Make design</div>
+					<div class="kanban__progress">
+						<div class="progress" max="100" x-data="progress(96, 1000)"></div>
+						<div class="t-muted t-hint mt-1 d-flex aic">Progress <span class="ml-auto">96%</span></div>
+					</div>
+					<div class="kanban__status">
+						<span class="badge bg-teal-lt">Low</span><span class="ml-auto t-muted t-hint">Due in 7 days</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

@@ -1,0 +1,198 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+		<form class="p-4" action="." method="get" autocomplete="off">
+			<div class="pb-4 bb">
+				<button type="submit" class="btn btn-primary btn-animated w-100" data-txt="Max size: 64Mb"><i class="icon-upload"></i> Upload new file</button>
+				<div class="mt-2 t-muted t-hint ta-center">Upload or drag and drop files</div>
+			</div>
+			<div class="py-3">
+				<div class="d-flex aic t-hint t-muted mb-3 fw-400">
+					<span>Storage</span><span class="ml-auto">Set limits</span>
+				</div>
+				<div class="progress" max="2000" x-data="progress(500, 1000)"></div>
+				<div class="mt-2 fw-500"><span>25%</span> used of 2GB</div>
+			</div>
+			<div class="py-3">
+				<div class="t-hint t-muted fw-400">Search</div>
+				<div class="mt-2">
+					<input type="search" name="search" placeholder="e.g. image.png">
+				</div>
+			</div>
+			<div class="py-3">
+				<div class="d-flex aic t-hint t-muted mb-3 fw-400">
+					<span>File types</span>
+				</div>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Images</span><span class="badge ml-auto bg-blue-lt">670</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Video</span><span class="badge ml-auto bg-blue-lt">356</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Audio</span><span class="badge ml-auto bg-blue-lt">117</span>
+				</label>
+			</div>
+			<div class="py-3">
+				<div class="d-flex aic t-hint t-muted mb-3 fw-400">
+					<span>Folders</span><span class="ml-auto">Add new</span>
+				</div>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Private</span><span class="badge ml-auto bg-blue-lt">56</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Public</span><span class="badge ml-auto bg-blue-lt">1245</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>My works</span><span class="badge ml-auto bg-blue-lt">21</span>
+				</label>
+			</div>
+			<div class="py-3">
+				<div class="d-flex aic t-hint t-muted mb-3 fw-400">
+					<span>Authors</span>
+				</div>
+				<select multiple placeholder="Select author" x-data="slimselect">
+					<option value="best">Admin</option>
+					<option value="select">John Doe</option>
+					<option value="ever">Piter Parker</option>
+					<option value="Delta">Delta</option>
+					<option value="Epsilon">Epsilon</option>
+					<option value="Zeta">Zeta</option>
+					<option value="Eta">Eta</option>
+					<option value="Theta">Theta</option>
+					<option value="Iota">Iota</option>
+					<option value="Kappa">Kappa</option>
+					<option value="Lambda">Lambda</option>
+					<option value="Mu">Mu</option>
+					<option value="Nu">Nu</option>
+					<option value="Xi">Xi</option>
+					<option value="Omicron">Omicron</option>
+					<option value="Pi">Pi</option>
+					<option value="Rho">Rho</option>
+					<option value="Sigma">Sigma</option>
+					<option value="Tau">Tau</option>
+					<option value="Upsilon">Upsilon</option>
+					<option value="Phi">Phi</option>
+					<option value="Chi">Chi</option>
+					<option value="Psi">Psi</option>
+					<option value="Omega">Omega</option>
+				</select>
+			</div>
+			<div class="pt-2">
+				<button type="submit" class="btn w-100"><i class="icon-send"></i>Find files</button>
+			</div>
+		</form>
+	</div>
+	<div class="jb__body">
+		<div class="w-100 p-4">
+			<div class="storage">
+				<div class="storage__item" data-ext="mp4">
+					<img src="https://placeimg.com/200/200/tech" width="200" height="200">
+					<div class="storage__meta">
+						Buildings.mp4
+						<div class="storage__data">456 MB <span class="storage__icon">2</span></div>
+					</div>
+				</div>
+				<div class="storage__item" tabindex="0" role="checkbox" checked="false">
+					<span x-listen="sounds/message.mp3" class="listen-node" data-src="sounds/new-message.mp3" data-start="" data-end="">new-message.mp3</span>
+					<div class="storage__meta">
+						<div class="storage__data">3.08 MB <span class="storage__icon">0</span></div>
+					</div>
+				</div>
+				<div class="storage__item" data-ext="jpeg">
+					<img src="https://placeimg.com/200/200/winter" width="200" height="200">
+					<div class="storage__meta">
+						<div class="storage__data">0.25 MB <span class="storage__icon">6</span></div>
+					</div>
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimgwer.com/200/200/sport.jpg" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="svg">
+					<img src="https://placeimg.com/200/200/hello" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="avi">
+					<img src="https://placeimg.com/200/200/nature" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="png">
+					<img src="https://placeimg.com/200/200/arch" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/abstract" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/tecnic" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/notes" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/product" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/man" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/pencil" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/minimalism" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/cosmos" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/planet" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/universe" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/arch" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/nature" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/arch" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/people" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/nature" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/tech" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/arch" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/any" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/arch" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/arch" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/people" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/nature" width="200" height="200">
+				</div>
+				<div class="storage__item" data-ext="jpg">
+					<img src="https://placeimg.com/200/200/nature" width="200" height="200">
+				</div>
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

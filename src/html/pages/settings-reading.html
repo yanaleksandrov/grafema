@@ -1,0 +1,72 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+		<a href="settings.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>General</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+		<a href="settings-writing.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>Writing</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+		<a href="settings-reading.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>Reading</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+		<a href="settings-discussion.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>Discussion</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+		<a href="settings-storage.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>Storage</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+		<a href="settings-permalinks.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>Permalinks</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+	</div>
+	<div class="jb__body">
+		<form class="w-100 p-4 d-grid gap-4" action="." method="get" autocomplete="off">
+			<div class="ga-12 bb pb-3 mb-3">
+				<h2 class="m-0">Reading settings</h2>
+			</div>
+			<div class="mt-4 ga-12">
+				<div class="fw-500">Your homepage displays</div>
+				<div class="d-flex aic mt-3">
+					<label class="d-flex aic">
+						<input type="radio" name="item"> Your latest posts
+					</label>
+				</div>
+				<div class="d-flex aic mt-3">
+					<label class="d-flex aic">
+						<input type="radio" name="item"> A static page (select below)
+					</label>
+				</div>
+
+				<select name="start_of_week" x-data x-init="jb.select($el)">
+					<option value="0">Home Page</option>
+					<option value="2">Tuesday</option>
+					<option value="3">Wednesday</option>
+					<option value="4">Thursday</option>
+					<option value="5">Friday</option>
+					<option value="6">Saturday</option>
+				</select>
+				<select name="start_of_week" x-data x-init="jb.select($el)">
+					<option value="0">Blog Page</option>
+					<option value="2">Tuesday</option>
+					<option value="3">Wednesday</option>
+					<option value="4">Thursday</option>
+					<option value="5">Friday</option>
+					<option value="6">Saturday</option>
+				</select>
+			</div>
+			<div class="mt-4 ga-12">
+				<button type="submit" class="btn btn-primary"><i class="icon-send"></i>Save settings</button>
+			</div>
+		</form>
+	</div>
+	<div class="jb__aside">
+
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

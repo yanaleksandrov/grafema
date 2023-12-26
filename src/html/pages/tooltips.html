@@ -1,0 +1,29 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+
+	</div>
+	<div class="jb__body">
+		<div class="p-4">
+			<h2>Tooltips</h2>
+			<div class="t-muted t-hint mb-4">cheat sheet</div>
+			<p><a href="https://github.com/prevwong/drooltip.js/" target="_blank">Drooltip</a> is a native JS plugin that is aimed to provide developers custom tooltips that are beautiful, powerful & extensible. It is pretty lightweight too, without too much bloat & unnecessary features.</p>
+
+			<h3>How To Use</h3>
+			<p>When the mouse hovers, the tooltip box defaults to the top position.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<button class="btn" x-data="{aloha: 'Hello'}" x-tooltip.top="aloha">Hover me</button>
+					<button class="btn" x-tooltip.click="'Hello World'">Click me</button>
+					<button class="btn" x-tooltip.right="'Hello World'">HTML elements</button>
+					<button class="btn" x-tooltip.top title=":ajax[script.php]:">AJAX/Jsonp</button>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="jb__aside">
+
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

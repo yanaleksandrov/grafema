@@ -1,0 +1,45 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+
+	</div>
+	<div class="jb__body">
+		<div class="p-4">
+			<h1>Progress bars</h1>
+			<p>Progress bars are used to provide feedback on an action status and inform users of the current progress. Although seemingly small interface elements, they are extremely helpful in managing users' expectations and preventing them from abandoning a process they have initiated.</p>
+
+			<h2>Simple static progress</h2>
+			<p>To create a default progress bar, add a <code>.progress</code> class to a <code>&lt;progress&gt;</code> element. Thanks to that, you will be able to notify users how long they have to wait for a process to complete.</p>
+			<p>The current and maximum values are set using the attributes <code>value</code> and <code>max</code>.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<div class="progress" x-progress.300.0.275></div>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h2>Progress bar-loader</h2>
+			<p>You can create a progress bar which shows indeterminate progress by adding <code>.progress-loader</code> to the <code>.progress</code> element.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<div class="progress progress--loader"></div>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h2>Loadable progress bars</h2>
+			<p>The animation of the progress bar occurs only when the element hits the viewing area of the screen. The following examples show 2 progress bars. In the first case, the indicator increases from 0 to 100 in 2 seconds. In the second - in the range from 25 to 75 in 1 seconds.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<div class="progress" x-progress.100.20.80.500ms></div>
+					<br>
+					<div class="progress" x-progress.100.0.75.500ms></div>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

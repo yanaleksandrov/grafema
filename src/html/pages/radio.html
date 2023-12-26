@@ -1,0 +1,23 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+
+	</div>
+	<div class="jb__body">
+		<div class="p-4">
+			<h2>Radio button</h2>
+			<div class="sample">
+				<div class="sample__item">
+					<p><input type="radio" name="item"> Item 1</p>
+					<p><input type="radio" name="item"> Item 2</p>
+					<p><input class="disabled" type="radio" name="item"> Item 3 (disabled)</p>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="jb__aside">
+
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

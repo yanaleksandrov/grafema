@@ -1,0 +1,189 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+		<form class="p-4" action="." method="get" autocomplete="off">
+			<div class="pb-4 bb">
+				<button type="submit" class="btn btn-primary btn-animated w-100" data-txt="Max size: 64Mb"><i class="icon-upload"></i> Add new plugin</button>
+				<div class="mt-2 t-muted t-hint ta-center">Upload or drag and drop files</div>
+			</div>
+			<div class="py-3">
+				<div class="t-hint t-muted fw-400">Search</div>
+				<div class="mt-2">
+					<input type="search" name="search" placeholder="e.g. image.png">
+				</div>
+			</div>
+			<div class="py-3">
+				<div class="d-flex aic t-hint t-muted mb-3 fw-400">
+					<span>Categories</span><span class="ml-auto">Choose all</span>
+				</div>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>E-commerce</span><span class="badge ml-auto bg-blue-lt">6</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Analytics</span><span class="badge ml-auto bg-blue-lt">56</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Blocks</span><span class="badge ml-auto bg-blue-lt">79</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Security</span><span class="badge ml-auto bg-blue-lt">21</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>SEO</span><span class="badge ml-auto bg-blue-lt">14</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Social</span><span class="badge ml-auto bg-blue-lt">26</span>
+				</label>
+				<label class="d-flex aic mb-1">
+					<input type="checkbox" name="remember">
+					<span>Content</span><span class="badge ml-auto bg-blue-lt">139</span>
+				</label>
+			</div>
+		</form>
+	</div>
+	<div class="jb__body">
+
+		<div class="d-flex bg-muted-lt aic p-4 pb-0">
+			<div class="mr-2">
+				<div class="t-muted t-hint">Plugins extend and expand the functionality</div>
+				<h4 class="m-0">Add Plugins</h4>
+			</div>
+			<div class="ml-auto">
+				<button class="btn"><i class="icon-folder-open"></i> Add new plugin</button>
+			</div>
+		</div>
+
+		<div class="plugin">
+			<div class="plugin__item">
+				<div class="plugin__card">
+					<div class="plugin__img">
+						<img src="images/logo.svg" width="40" height="40" alt="">
+					</div>
+					<div class="plugin__desc">
+						<h4 class="plugin__title"><a href="?plugin=classic-editor">Classic Editor</a> <span class="badge bg-green-lt">Installed</span></h4>
+						<p>The best anti-spam protection to block spam comments and spam in a contact form. The most trusted antispam solution.</p>
+						<p>by <a href="https://codyshop.ru" alt="Our Team">Our Team</a></p>
+					</div>
+				</div>
+				<div class="plugin__bottom">
+					<div class="plugin__row">
+						<div class="plugin__column">5+ Million Installations</div>
+						<div class="plugin__column"><strong>Last Updated</strong>: 4 months ago</div>
+					</div>
+					<div class="plugin__row">
+						<div class="plugin__column">
+							<div class="plugin__stars">
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+							</div>
+							[973]
+						</div>
+						<div class="plugin__column"><strong>Compatible</strong> with your WP version</div>
+					</div>
+				</div>
+			</div>
+			<div class="plugin__item">
+				<div class="plugin__card">
+					<div class="plugin__img">
+						<img src="images/logo.svg" width="40" height="40" alt="">
+					</div>
+					<div class="plugin__desc">
+						<h4 class="plugin__title"><a href="?plugin=classic-editor">Antispamer</a> <span class="badge bg-blue-lt">Install now</span></h4>
+						<p>Enables the previous "classic" editor and the old-style Edit Post screen with TinyMCE, Meta Boxes, etc.</p>
+						<p>by <a href="https://codyshop.ru" alt="Our Team">Our Team</a></p>
+					</div>
+				</div>
+				<div class="plugin__bottom">
+					<div class="plugin__row">
+						<div class="plugin__column">5+ Million Installations</div>
+						<div class="plugin__column"><strong>Last Updated</strong>: 4 months ago</div>
+					</div>
+					<div class="plugin__row">
+						<div class="plugin__column">
+							<div class="plugin__stars">
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+							</div>
+							[973]
+						</div>
+						<div class="plugin__column"><strong>Compatible</strong> with your WP version</div>
+					</div>
+				</div>
+			</div>
+			<div class="plugin__item">
+				<div class="plugin__card">
+					<div class="plugin__img">
+						<img src="images/logo.svg" width="40" height="40" alt="">
+					</div>
+					<div class="plugin__desc">
+						<h4 class="plugin__title"><a href="?plugin=classic-editor">Block Editor</a> <span class="badge bg-red-lt">Update WP</span></h4>
+						<p>Enables the previous "classic" editor and the old-style Edit Post screen with TinyMCE, Meta Boxes, etc.</p>
+						<p>by <a href="https://codyshop.ru" alt="Our Team">Our Team</a></p>
+					</div>
+				</div>
+				<div class="plugin__bottom">
+					<div class="plugin__row">
+						<div class="plugin__column">5+ Million Installations</div>
+						<div class="plugin__column"><strong>Last Updated</strong>: 4 months ago</div>
+					</div>
+					<div class="plugin__row">
+						<div class="plugin__column">
+							<div class="plugin__stars">
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+							</div>
+							[973]
+						</div>
+						<div class="plugin__column"><strong>Compatible</strong> with your WP version</div>
+					</div>
+				</div>
+			</div>
+			<div class="plugin__item">
+				<div class="plugin__card">
+					<div class="plugin__img">
+						<img src="images/logo.svg" width="40" height="40" alt="">
+					</div>
+					<div class="plugin__desc">
+						<h4 class="plugin__title"><a href="?plugin=classic-editor">Antispamer</a> <span class="badge bg-blue-lt">Install now</span></h4>
+						<p>Enables the previous "classic" editor and the old-style Edit Post screen with TinyMCE, Meta Boxes, etc.</p>
+						<p>by <a href="https://codyshop.ru" alt="Our Team">Our Team</a></p>
+					</div>
+				</div>
+				<div class="plugin__bottom">
+					<div class="plugin__row">
+						<div class="plugin__column">5+ Million Installations</div>
+						<div class="plugin__column"><strong>Last Updated</strong>: 4 months ago</div>
+					</div>
+					<div class="plugin__row">
+						<div class="plugin__column">
+							<div class="plugin__stars">
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+								<i class="icon icon-star-full"></i>
+							</div>
+							[973]
+						</div>
+						<div class="plugin__column"><strong>Compatible</strong> with your WP version</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

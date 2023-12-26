@@ -1,0 +1,45 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+
+	</div>
+	<div class="jb__body">
+		<div class="p-4">
+			<h2>Validation with "IMask"</h2>
+			<div class="sample">
+				<div class="sample__item">
+					<p>USA phone number
+						<input class="control at-field" type="tel" placeholder="+1(654) 123 4567" x-data="mask" @input="run('+1({/[1-9]/}00) 000 000{/[1-9]/}')">
+					</p>
+					<p>Card number
+						<input type="text" placeholder="4242 4242 4242 4242" x-data="mask" @input="run('0000 0000 0000 0000')">
+					</p>
+					<p>Russian car number
+						<input type="text" placeholder="а777аа" x-data="mask" @input="run('{/^[авекмнорстух]+$/}000{/^[авекмнорстух]+$/}{/^[авекмнорстух]+$/}')">
+					</p>
+					<p>Russian postal code
+						<input type="text" placeholder="600000" x-data="mask" @input="run('{/[1-6]/}00000')">
+					</p>
+					<p>Canadian postal code
+						<input type="text" placeholder="K1A 0B2" x-data="mask" @input="run('{/[A-Z]/}0{/[A-Z]/} 0{/[A-Z]/}0')">
+					</p>
+					<p>IP address
+						<input type="text" placeholder="111.222.333.444" x-data="mask" @input="run('000.000.000.000')">
+					</p>
+					<p>Date and time
+						<input type="text" placeholder="31.12.2021 23:59" x-data="mask" @input="run('DD.MM.YYYY HH:ii')">
+					</p>
+					<p>Subdomain and domains
+<!--							TODO: add mask for subdomain and domains-->
+						<input type="text" placeholder="google.com" x-data="mask" @input="run('[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+')">
+					</p>
+					<p>Simple number
+						<input type="number" placeholder="Product price" x-data="mask" @input="run">
+					</p>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

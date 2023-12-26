@@ -1,0 +1,63 @@
+<% var data = { title: "Accordion" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__body">
+		<div class="p-4">
+			<h2>Accordion</h2>
+			<div class="t-muted t-hint mb-4">collapsible content panels</div>
+
+			<p>Displays collapsible content panels for presenting information in a limited amount of space. Click headers to expand/collapse content that is broken into logical sections, much like tabs.</p>
+			<p>Allows you to expand and collapse elements using smooth animations.</p>
+
+			<h3 x-anchor>Usage</h3>
+			<p>The primary API for using this plugin is the <code>x-collapse</code> directive. <code>x-collapse</code> can only exist on an element that already has an <code>x-show</code> directive. When added to an x-show element, x-collapse will smoothly "collapse" and "expand" the element when it's visibility is toggled by animating its height property.</p>
+			<div class="sample">
+				<div class="sample__item">
+
+					<div class="accordion" x-data="{ i: -1 }">
+						<div class="accordion__item">
+							<div class="accordion__title" @click="i = i !== 1 ? 1 : -1">Title of item 1</div>
+							<div class="accordion__panel" x-show="i === 1" x-collapse x-cloak>
+								<p>Description of item 1</p>
+							</div>
+						</div>
+						<div class="accordion__item">
+							<div class="accordion__title" @click="i = i !== 2 ? 2 : -1">Title of item 2</div>
+							<div class="accordion__panel" x-show="i === 2" x-collapse x-cloak>
+								<p>Description of item 2</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3 x-anchor>Modifiers</h3>
+			<h5>.duration</h5>
+			<p>You can customize the duration of the collapse/expand transition by appending the .duration modifier like so:</p>
+			<div class="sample">
+				<div class="sample__item">
+
+					<div class="accordion" x-data="{ i: -1 }">
+						<div class="accordion__item">
+							<div class="accordion__title" @click="i = i !== 1 ? 1 : -1">Title of item 1</div>
+							<div class="accordion__panel" x-show="i === 1" x-collapse x-cloak>
+								<p>Description of item 1</p>
+							</div>
+						</div>
+						<div class="accordion__item">
+							<div class="accordion__title" @click="i = i !== 2 ? 2 : -1">Title of item 2</div>
+							<div class="accordion__panel" x-show="i === 2" x-collapse.duration.1000ms x-cloak>
+								<p>Description of item 2</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

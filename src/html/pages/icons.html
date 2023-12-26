@@ -1,0 +1,40 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+
+	</div>
+	<div class="jb__body">
+		<div class="p-4">
+			<h2>Icons</h2>
+			<div class="t-muted t-hint mb-4">vector graphics</div>
+			<p>An open source icon library is used for semantic vector graphics. The recommended icon size is 16x16 pixels.</p>
+
+			<h3>How To Use</h3>
+			<p>Use <code>class="icon"</code> to declare the icon and set the proper classname.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<i class="icon icon-archive"></i>
+					<i class="icon icon-folder-open"></i>
+					<i class="icon icon-gift"></i>
+					<i class="icon icon-table"></i>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>List of icons</h3>
+			<div class="icons" x-data="ajax('/fonts/icomoon.json')" x-init="run">
+				<template x-for="item in items" :key="item.name">
+					<div class="icons__item">
+						<svg xmlns="http://www.w3.org/2000/svg" :viewBox="item.viewBox" :height="item.size.height" :width="item.size.width" x-ref="svg">
+							<path :d="item.paths" fill="black"></path>
+						</svg>
+						<div class="icons__btn" x-copy="`<i class=&#34;icon icon-${item.name}&#34;></i>`">Copy HTML</div>
+						<div class="icons__btn" x-copy="$refs.svg">Copy SVG</div>
+					</div>
+				</template>
+			</div>
+
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

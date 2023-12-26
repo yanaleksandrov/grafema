@@ -1,0 +1,52 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+
+	</div>
+	<div class="jb__body">
+		<div class="p-4">
+			<h1>Input fields</h1>
+			<h2>Type "text"</h2>
+			<p>Use <code>class="icon"</code> to declare the icon and set the proper classname.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<p><input type="text" placeholder="Your name"></p>
+					<p><input class="disabled" type="text" placeholder="Your name"></p>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+			<h2>Types</h2>
+			<p>Use <code>class="icon"</code> to declare the icon and set the proper classname.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<p><input type="text" placeholder="[type='text']"></p>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+			<h2>With preloader</h2>
+			<p>Use <code>class="icon"</code> to declare the icon and set the proper classname.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<p><input class="load" type="text" placeholder="Your name"></p>
+					<p><input class="load disabled" type="text" placeholder="Your name"></p>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+			<h2>Type "number"</h2>
+			<p>Use <code>class="icon"</code> to declare the icon and set the proper classname.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<p><input type="number" placeholder="Product price" x-data @keydown="if( ['+','-','e'].parts( $event.key ) ) $event.preventDefault()"></p>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="jb__aside">
+
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

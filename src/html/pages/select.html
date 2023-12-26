@@ -1,0 +1,160 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+
+	</div>
+	<div class="jb__body">
+		<div class="p-4">
+			<h2>Select</h2>
+			<div class="t-muted t-hint mb-4">drop-down list</div>
+
+			<p>The <code>&lt;select&gt;</code> allows you to create an interface element in the form of a drop-down list, as well as a list with one or multiple selections.</p>
+
+			<h3>Default selects</h3>
+			<p>Each item is created using the <code>&lt;option&gt;</code> element, which must be nested in the <code>&lt;select&gt;</code> container. If you plan to send the list data to the server, then you need to put <code>&lt;select&gt;</code> inside the form. This is also necessary when the list data is accessed through scripts.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<select name="sample">
+						<option value="best" selected="selected">Best</option>
+						<option value="select">Select</option>
+						<option value="ever">Ever</option>
+					</select>
+					<br><br>
+					<select name="sample" multiple>
+						<option value="best">Best</option>
+						<option value="select">Select</option>
+						<option value="ever">Ever</option>
+					</select>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>With Slim Select library</h3>
+			<p>Currently, the select tag is poorly stylized and has many functional limitations. Therefore, the <a href="http://slimselectjs.com" target="_blank">Slim Select</a> library is used, which expands the capabilities of the list.</p>
+			<p>Basic single select usage with Slim Select is extremely easy. Just set the attribute <code>x-data="slimselect"</code> to your select element. Multi selects work just the same as a single select. The only difference is setting the <code>multiple</code> attribute on your select.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<select name="sample" x-data="slimselect">
+						<option value="best" selected="selected">Best</option>
+						<option value="select">Select</option>
+						<option value="ever">Ever</option>
+					</select>
+					<br><br>
+					<select name="sample" multiple x-data="slimselect">
+						<option value="best">Best</option>
+						<option value="select">Select</option>
+						<option value="ever">Ever</option>
+					</select>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>Slim Select options</h3>
+			<p>You can use any of the available library options. See the full list on the <a href="http://slimselectjs.com/options" target="_blank">official website</a>.</p>
+
+			<h4>Selects with search</h4>
+			<div class="sample">
+				<div class="sample__item">
+					<select x-data="slimselect">
+						<option value="">Select value</option>
+						<option value="Alpha">Alpha</option>
+						<option value="Beta">Beta</option>
+						<option value="Gamma">Gamma</option>
+						<option value="Delta">Delta</option>
+						<option value="Epsilon">Epsilon</option>
+						<option value="Zeta">Zeta</option>
+						<option value="Eta">Eta</option>
+						<option value="Theta">Theta</option>
+						<option value="Iota">Iota</option>
+						<option value="Kappa">Kappa</option>
+						<option value="Lambda">Lambda</option>
+						<option value="Mu">Mu</option>
+						<option value="Nu">Nu</option>
+						<option value="Xi">Xi</option>
+						<option value="Omicron">Omicron</option>
+						<option value="Pi">Pi</option>
+						<option value="Rho">Rho</option>
+						<option value="Sigma">Sigma</option>
+						<option value="Tau">Tau</option>
+						<option value="Upsilon">Upsilon</option>
+						<option value="Phi">Phi</option>
+						<option value="Chi">Chi</option>
+						<option value="Psi">Psi</option>
+						<option value="Omega">Omega</option>
+					</select>
+					<br><br>
+					<select multiple x-data="slimselect">
+						<option value="">Select value</option>
+						<option value="Alpha" selected="selected">Alpha</option>
+						<option value="Beta">Beta</option>
+						<option value="Gamma">Gamma</option>
+						<option value="Delta">Delta</option>
+						<option value="Epsilon">Epsilon</option>
+						<option value="Zeta">Zeta</option>
+						<option value="Eta">Eta</option>
+						<option value="Theta">Theta</option>
+						<option value="Iota">Iota</option>
+						<option value="Kappa">Kappa</option>
+						<option value="Lambda">Lambda</option>
+						<option value="Mu">Mu</option>
+						<option value="Nu">Nu</option>
+						<option value="Xi">Xi</option>
+						<option value="Omicron">Omicron</option>
+						<option value="Pi">Pi</option>
+						<option value="Rho">Rho</option>
+						<option value="Sigma">Sigma</option>
+						<option value="Tau">Tau</option>
+						<option value="Upsilon">Upsilon</option>
+						<option value="Phi">Phi</option>
+						<option value="Chi">Chi</option>
+						<option value="Psi">Psi</option>
+						<option value="Omega">Omega</option>
+					</select>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h4>Selects with inner HTMl</h4>
+			<div class="sample">
+				<div class="sample__item">
+					<select x-data="slimselect">
+						<option value="ru" data-img="flags/ru.svg">Russia</option>
+						<option value="it" data-img="flags/it.svg">Italy</option>
+						<option value="de" data-img="flags/de.svg">Germany</option>
+					</select>
+					<br><br>
+					<select multiple x-data="slimselect">
+						<option value="ru" selected="selected" data-img="flags/ru.svg">Russia</option>
+						<option value="it" data-img="flags/it.svg">Italy</option>
+						<option value="de" selected="selected" data-img="flags/de.svg">Germany</option>
+					</select>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h4>Addable selects</h4>
+			<p>Slim select has the ability to dynamically add options via the search input field</p>
+			<div class="sample">
+				<div class="sample__item">
+					<select x-data="slimselect({addable:true})">
+						<option value="best">Best</option>
+						<option value="select">Select</option>
+						<option value="ever">Ever</option>
+					</select>
+					<br><br>
+					<select multiple x-data="slimselect({addable:true})">
+						<option value="best" selected="selected">Best</option>
+						<option value="select">Select</option>
+						<option value="ever">Ever</option>
+					</select>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

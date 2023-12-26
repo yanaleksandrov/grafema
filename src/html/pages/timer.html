@@ -1,0 +1,66 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+
+	</div>
+	<div class="jb__body">
+		<div class="p-4">
+			<h2>Timer</h2>
+			<div class="t-muted t-hint mb-4">time counter before the event</div>
+
+			<p>Counting time in four different units: seconds, minutes, hours and days. The timer is useful to use on pages such as "Soon on sale" or "Maintenance". It allows the user to visually determine the time before an event.</p>
+
+			<h3 x-anchor>Basic Usage</h3>
+			<p>Starting a timer is very simple. Declare a new Alpine component and its data for a block of HTML: <code>x-data="timer(...)"</code> and add <code>x-text</code> attribute.</p>
+			<p>The timer function takes 2 parameters: <code>endTime</code> and <code>startTime</code> and is set in the ISO 8601 format. The required <code>endTime</code> parameter sets the end time of the countdown. The <code>startTime</code> parameter is optional, and sets the timer start time: immediately (if the parameter is not specified) or delayed.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<div x-timer="new Date( new Date().getTime() - ( 110000 * 1000 ) )">
+						<span x-text="day">00</span>:<span x-text="hour">00</span>:<span x-text="min">00</span>:<span x-text="sec">00</span>
+					</div>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+			<div class="sample">
+				<div class="sample__item">
+					<div x-data="timer( new Date( new Date().getTime() + ( 110000 * 1000 ) ).toISOString() )">
+						<span x-text="day">00</span>:<span x-text="hour">00</span>:<span x-text="min">00</span>:<span x-text="sec">00</span>
+					</div>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3 x-anchor>Attributes usage</h3>
+			<p>Days, hours, minutes and seconds are output via the <code>x-data</code> attribute with the values <code>day</code>, <code>hour</code>, <code>min</code> and <code>sec</code>. At the same time, the nesting is not limited by anything. You can create html elements of any complexity.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<div class="df aic g-1" x-data="timer( new Date( new Date().getTime() + ( 220000 * 1000 ) ).toISOString() )">
+						<div class="p-2 py-3 ta-center b mw-20x4">
+							<div class="fw-600" x-text="day">00</div>
+							<div class="t-hint t-muted">days</div>
+						</div>
+						:
+						<div class="p-2 py-3 ta-center b mw-20x4">
+							<div class="fw-600" x-text="hour">00</div>
+							<div class="t-hint t-muted">hours</div>
+						</div>
+						:
+						<div class="p-2 py-3 ta-center b mw-20x4">
+							<div class="fw-600" x-text="min">00</div>
+							<div class="t-hint t-muted">minutes</div>
+						</div>
+						:
+						<div class="p-2 py-3 ta-center b mw-20x4">
+							<div class="fw-600" x-text="sec">00</div>
+							<div class="t-hint t-muted">seconds</div>
+						</div>
+					</div>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

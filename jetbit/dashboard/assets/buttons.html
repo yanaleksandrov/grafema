@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+
+    <link rel='stylesheet' type='text/css' id='jb-phosphor' href="css/phosphor.css"/>
+    <link rel='stylesheet' type='text/css' id='jb-colorist' href="css/colorist.css"/>
+    <link rel='stylesheet' type='text/css' id='jb-datepicker' href="css/datepicker.css"/>
+    <link rel='stylesheet' type='text/css' id='jb-drooltip' href="css/drooltip.css"/>
+    <link rel='stylesheet' type='text/css' id='jb-flags' href="css/flags.css"/>
+    <link rel='stylesheet' type='text/css' id='jb-nouislider' href="css/nouislider.css"/>
+    <link rel='stylesheet' type='text/css' id='jb-prism' href="css/prism.css"/>
+    <link rel='stylesheet' type='text/css' id='jb-slimselect' href="css/slimselect.css"/>
+    <link rel='stylesheet' type='text/css' id='jb-sortable' href="css/sortable.css"/>
+
+    <title>Buttons | Modula KIT</title>
+  </head>
+  <body class="jb">
+    <header class="jb__top">
+      <ul class="menu">
+        <li class="menu__item">
+          <a href="home.html"><i class="icon-home"></i>JetBit</a>
+        </li>
+        <li class="menu__item">
+          <a href="index.html"><i class="icon-update"></i>0</a>
+        </li>
+        <li class="menu__item">
+          <a href="index.html"><i class="icon-comments"></i>2</a>
+        </li>
+        <li class="menu__item parent">
+          <a href="page.html"><i class="icon-grid"></i>New</a>
+          <ul class="menu__sub">
+            <li class="menu__item">
+              <a href="product.html">Product</a>
+            </li>
+            <li class="menu__item">
+              <a href="cart.html">Cart</a>
+            </li>
+            <li class="menu__item">
+              <a href="checkout.html">Checkout</a>
+            </li>
+            <li class="menu__item">
+              <a href="account.html">Account</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu__item">
+          <a href="#">0.0184S   565.76kb   8Q</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="jb__main">
+      <div class="jb__side">
+        <div class="navbar" x-bind="navbar">
+          <div class="navbar__inner"></div>
+        </div>
+        <ul class="nav">
+          <li class="nav__item">
+            <a href="index.html"><i class="icon-dashboard"></i>Dashboard</a>
+          </li>
+          <li class="nav__item has-child" x-bind="trigger">
+            <a href="edit.html?type=post"><i class="icon-highlighter"></i>Interface <span class="badge bg-azure-lt ml-auto">12</span></a>
+            <ul class="nav__submenu">
+              <li><a href="accordion.html">Accordion</a></li>
+              <li><a href="avatar.html">Avatar</a></li>
+              <li><a href="badge.html">Badge</a></li>
+              <li><a href="cards.html">Cards</a></li>
+              <li><a href="icons.html">Icons</a></li>
+              <li><a href="mask.html">Mask</a></li>
+              <li><a href="modals.html">Modals</a></li>
+              <li><a href="notifs.html">Notifications</a></li>
+              <li><a href="sortable.html">Sortable</a></li>
+              <li><a href="syntax.html">Syntax</a></li>
+              <li><a href="tabs.html">Tabs</a></li>
+              <li><a href="tables.html">Tables</a></li>
+              <li><a href="timer.html">Timer</a></li>
+              <li><a href="tooltips.html">Tooltips</a></li>
+            </ul>
+          </li>
+          <li class="nav__item has-child" x-bind="trigger">
+            <a href="forms.html"><i class="icon-comments"></i>Controls <span class="badge bg-azure-lt ml-auto">11</span></a>
+            <ul class="nav__submenu">
+              <li><a href="buttons.html">Buttons</a></li>
+              <li><a href="checkbox.html">Checkbox</a></li>
+              <li><a href="colorpicker.html">Colorpicker</a></li>
+              <li><a href="datepicker.html">Datepicker</a></li>
+              <li><a href="iconpicker.html">Iconpicker</a></li>
+              <li><a href="input.html">Input</a></li>
+              <li><a href="range.html">Input range</a></li>
+              <li><a href="progress.html">Progress bar</a></li>
+              <li><a href="radio.html">Radio buttons</a></li>
+              <li><a href="select.html">Select</a></li>
+              <li><a href="textarea.html">Textarea</a></li>
+              <li><a href="zonepicker.html">Timezone picker</a></li>
+            </ul>
+          </li>
+          <li class="nav__item has-child" x-bind="trigger">
+            <a href="#"><i class="icon-bolt"></i>Extra <span class="badge bg-azure-lt ml-auto">5</span></a>
+            <ul class="nav__submenu">
+              <li><a href="sign-in.html">Sign in</a></li>
+              <li><a href="sign-up.html">Sign up</a></li>
+              <li><a href="forgot-password.html">Forgot password</a></li>
+              <li><a href="wizard.html">Wizard</a></li>
+              <li><a href="email.html">Email</a></li>
+            </ul>
+          </li>
+          <li class="nav__item separator"></li>
+          <li class="nav__item has-child" x-bind="trigger">
+            <a href="posts.html"><i class="icon-highlighter"></i>Posts</a>
+            <ul class="nav__submenu">
+              <li><a href="posts.html">All posts</a></li>
+              <li><a href="tags.html">Tags</a></li>
+              <li><a href="categories.html">Categories</a></li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <a href="storage.html"><i class="icon-folder-open"></i>Storage</a>
+          </li>
+          <li class="nav__item has-child" x-bind="trigger">
+            <a href="comments.html"><i class="icon-comments"></i>Dialogs</a>
+            <ul class="nav__submenu">
+              <li><a href="comments.html">Comments</a></li>
+              <li><a href="chat.html">Chat</a></li>
+            </ul>
+          </li>
+          <li class="nav__item separator"></li>
+          <li class="nav__item has-child" x-bind="trigger">
+            <a href="themes.html"><i class="icon-bucket"></i>Appearance</a>
+            <ul class="nav__submenu">
+              <li><a href="themes.html">Themes</a></li>
+              <li><a href="menu.html">Menu</a></li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <a href="plugins.html"><i class="icon-plugin"></i>Plugins</a>
+          </li>
+          <li class="nav__item">
+            <a href="users.html"><i class="icon-users"></i>Users</a>
+          </li>
+          <li class="nav__item">
+            <a href="kanban.html"><i class="icon-kanban"></i>Kanban</a>
+          </li>
+          <li class="nav__item has-child" x-bind="trigger">
+            <a href="tools.html"><i class="icon-tool"></i>Tools <span class="badge bg-azure-lt ml-auto">3</span></a>
+            <ul class="nav__submenu">
+              <li><a href="import.html">Import</a></li>
+              <li><a href="export.html">Export</a></li>
+              <li><a href="translation.html">Translation</a></li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <a href="settings.html"><i class="icon-cog"></i>Settings</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="jb__body">
+        <div class="p-8">
+          <h2>Buttons</h2>
+          <div class="t--muted t--hint mb-4">test description</div>
+	<p>
+		Use button styles that best suit your designs and encourage users to take the desired actions.
+		You can customize the button's properties to improve the user experience of your website or system,
+		changing the size, shape, color and many more.
+	</p>
+	<p>
+		As one of the most common elements of UI design, buttons have a very important function of engaging
+		users with your website or app and guiding them in their actions. Use the <code>.btn</code> classes
+		with the <code>&lt;button&gt;</code> element and add additional styling that will make your buttons serve
+		their purpose and draw users’ attention.
+	</p>
+
+	<h3>Types buttons</h3>
+	<p>
+		The standard button creates a white background and subtle hover animation.
+		It’s meant to look and behave as an interactive element of your page.
+		There are 6 button types:
+		<code>primary</code>,
+		<code>success</code>,
+		<code>danger</code>,
+		<code>secondary</code>,
+		<code>outline</code> and
+		<code>flat</code> by default.
+	</p>
+	<div class="sample">
+		<div class="sample__item">
+			<span class="btn btn--primary">Primary</span>
+			<span class="btn btn--success">Success</span>
+			<span class="btn btn--danger">Danger</span>
+			<span class="btn btn--outline">Secondary</span>
+			<span class="btn btn--outline">Outline</span>
+			<span class="btn">Default</span>
+		</div>
+		<div class="sample__code">
+		</div>
+	</div>
+
+	<h3>Button sizes</h3>
+	<p>
+		Next to the default size there is also a .btn-sm (small) and .btn-large option.
+		Use them to decrease or increase the button size. This is useful for fitting a
+		button next to an input or turning a button into a prominent call to action in hero sections.
+	</p>
+	<p>
+		Type scale utilities can be used to alter the font-size if needed. Padding is applied
+		in it's so that it scales proportionally with the font-size.
+	</p>
+	<div class="sample">
+		<div class="sample__item">
+			<span class="btn btn--outline btn--sm">Small size</span>
+			<span class="btn btn--outline">Normal size</span>
+			<span class="btn btn--outline btn--lg">Large size</span>
+		</div>
+		<div class="sample__code">
+		</div>
+	</div>
+
+	<h3>Button with icons</h3>
+	<p>
+		Icons can be added to any button.
+	</p>
+	<div class="sample">
+		<div class="sample__item">
+			<span class="btn btn--primary"><i class="icon icon-heart"></i></span>
+			<span class="btn btn--success">Comment <i class="icon icon-comments"></i></span>
+			<span class="btn btn--danger">Close <i class="icon icon-close"></i></span>
+			<span class="btn btn--outline">Buy now <i class="icon icon-bag"></i></span>
+			<span class="btn btn--outline">Update <i class="icon icon-update"></i></span>
+			<span class="btn"><i class="icon icon-call"></i> Call</span>
+		</div>
+		<div class="sample__code">
+		</div>
+	</div>
+
+	<h3>Disabled buttons</h3>
+	<p>
+		Make buttons look inactive to show that an action is possible once the user
+		meets certain criteria, such as completing the required fields to submit a form.
+	</p>
+	<div class="sample">
+		<div class="sample__item">
+			<span class="btn" disabled>Simple Button</span>
+			<span class="btn btn--primary" disabled>Primary Button</span>
+			<span class="btn btn--success" disabled>Confirm</span>
+			<span class="btn btn--danger" disabled>Disable</span>
+			<span class="btn btn--flat" disabled>Flat</span>
+		</div>
+		<div class="sample__code">
+		</div>
+	</div>
+
+	<h3 x-anchor>Button with badge</h3>
+	<p>Badges can be used as part of links or buttons to provide a counter.</p>
+	<div class="sample">
+		<div class="sample__item">
+			<button type="button" class="btn btn--outline">Notifications <span class="badge bg-red">4</span></button>
+			<button type="button" class="btn btn--outline">Notifications <span class="badge bg-green">4</span></button>
+		</div>
+		<div class="sample__code">
+		</div>
+	</div>
+
+	<h3>Loading buttons</h3>
+	<p>
+		Add the <code>.btn--load</code> class to show a button’s loading state, which can be useful
+		in the case of operations that take longer to process. Thanks to that, users will be aware
+		of the current state of their action and won’t give it up before it’s finished.
+	</p>
+	<div class="sample">
+		<div class="sample__item">
+			<span class="btn btn--primary btn--load">Primary</span>
+			<span class="btn btn--success btn--load">Success</span>
+			<span class="btn btn--danger btn--load">Danger</span>
+			<span class="btn btn--outline btn--load">Secondary</span>
+			<span class="btn btn--outline btn--load">Outline</span>
+			<span class="btn btn--load">Default</span>
+		</div>
+		<div class="sample__code">
+		</div>
+	</div>
+
+	<h3>Animated buttons</h3>
+	<p></p>
+	<div class="sample">
+		<div class="sample__item">
+			<span class="btn btn--primary btn--animated" data-txt="$12.99 a month">Sign-up for a PRO</span>
+			<span class="btn btn--success btn--animated" data-txt="$12.99 a month">Sign-up for a PRO</span>
+			<span class="btn btn--danger btn--animated" data-txt="$12.99 a month">Sign-up for a PRO</span>
+			<span class="btn btn--outline btn--animated" data-txt="$12.99 a month">Sign-up for a PRO</span>
+			<span class="btn btn--outline btn--animated" data-txt="$12.99 a month">Sign-up for a PRO</span>
+			<span class="btn btn--animated" data-txt="$12.99 a month">Sign-up for a PRO</span>
+		</div>
+		<div class="sample__code">
+		</div>
+	</div>
+        </div>
+      </div>
+    </main>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="js/vanillaTextMask.min.js"></script>
+    <script src="js/colorist.min.js"></script>
+    <script src="js/sortable.min.js"></script>
+    <script src="js/datepicker.js"></script>
+    <script src="js/slimselect.min.js"></script>
+    <script src="js/index.js"></script>
+    <!-- https://semantic-ui.com/elements/button.html -->
+  <script defer src="js/index.js"></script></body>
+</html>

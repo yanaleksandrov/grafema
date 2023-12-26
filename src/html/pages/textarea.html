@@ -1,0 +1,42 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__body">
+		<div class="p-4">
+			<h2>Textarea</h2>
+			<div class="t-muted t-hint mb-4">multiline text input</div>
+
+			<p>Textarea Input for multiline text, not for rich text entry.</p>
+			<h3>Basic</h3>
+			<p>Simple textarea with fixed height. The textarea is fixed as 2 lines default.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<textarea placeholder="Text of your comment"></textarea>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+			<h3>Disabled</h3>
+			<p>To make textarea as disabled, add disabled property to the Textarea.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<textarea placeholder="Text of your comment" disabled></textarea>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+			<h3>With autoresize</h3>
+			<p>Automatically adjusted the height of textarea according to the number of lines without limited. Just add the <code>x-textarea</code> directory for the text field.</p>
+			<p>The maximum number of rows can be set as the attribute value portion of the directive. In example, where 5 is the maximum number of rows: <code>x-textarea="5"</code>. The minimum value of rows is set via the <code>rows</code> attribute.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<textarea placeholder="Text of your comment" rows="1" x-textarea="5"></textarea>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="jb__aside">
+
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

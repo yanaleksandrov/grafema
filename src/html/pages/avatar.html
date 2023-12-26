@@ -1,0 +1,124 @@
+<% var data = { title: "Avatar" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__body">
+		<div class="p-4">
+			<h1>Avatars</h1>
+			<p>Avatars help customise various elements of a user interface and make the product experience more personalised. They are often used in communication apps, collaboration tools and social media.</p>
+			<h3>Simple iamge</h3>
+			<p>Set an image as the background to make users easy to indentify and create a personalised experience.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<span class="avatar" style="background-image: url(https://placeimg.com/40/40/woman)"></span>
+					<span class="avatar" style="background-image: url(https://placeimg.com/40/40/man)"></span>
+					<span class="avatar" style="background-image: url(https://placeimg.com/40/40/child)"></span>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>With user initials</h3>
+			<p>You can also use initials instead of pictures.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<span class="avatar">AB</span>
+					<span class="avatar">CD</span>
+					<span class="avatar">EF</span>
+					<span class="avatar">GH</span>
+					<span class="avatar">IJ</span>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>With icon</h3>
+			<p>Apart from pictures and initials, you can also use icons to make the avatars more universal. See <a href="icons.html">icons list</a>.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<span class="avatar"><i class="icon icon-fire"></i></span>
+					<span class="avatar"><i class="icon icon-home"></i></span>
+					<span class="avatar"><i class="icon icon-horse"></i></span>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>Set size</h3>
+			<p>Using Bootstrap’s typical naming structure, you can create a standard avatar or scale it up or down to different sizes based on what you need.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<span class="avatar avatar--xl">HS</span>
+					<span class="avatar avatar--lg" style="background-image: url(https://placeimg.com/112/112/woman)"></span>
+					<span class="avatar avatar--md" style="background-image: url(https://placeimg.com/112/112/man)"></span>
+					<span class="avatar">EP</span>
+					<span class="avatar avatar--sm" style="background-image: url(https://placeimg.com/112/112/dog)"></span>
+					<span class="avatar avatar--xs" style="background-image: url(https://placeimg.com/112/112/bird)"></span>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>Avatar circle</h3>
+			<p>You can make them round or square and change their border radius.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<span class="avatar avatar--xl avatar--circle">HS</span>
+					<span class="avatar avatar--lg avatar--circle" style="background-image: url(https://placeimg.com/112/112/woman)"></span>
+					<span class="avatar avatar--md avatar--circle" style="background-image: url(https://placeimg.com/112/112/man)"></span>
+					<span class="avatar avatar--circle">EP</span>
+					<span class="avatar avatar--sm avatar--circle" style="background-image: url(https://placeimg.com/112/112/dog)"></span>
+					<span class="avatar avatar--xs avatar--circle" style="background-image: url(https://placeimg.com/112/112/bird)"></span>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>With status indicator</h3>
+			<p>Add a status indicator to your avatar to show, for instance, if a users is online or offline or indicate the number of messages they have received.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<div class="avatar-list">
+						<span class="avatar" style="background-image: url(https://placeimg.com/100/100/woman)"><span class="badge bg-blue"></span></span>
+						<span class="avatar" style="background-image: url(https://placeimg.com/100/100/man)"><span class="badge bg-pink"></span></span>
+						<span class="avatar" style="background-image: url(https://placeimg.com/100/100/elder)"><span class="badge bg-red"></span></span>
+						<span class="avatar" style="background-image: url(https://placeimg.com/100/100/cat)"><span class="badge bg-green"></span></span>
+					</div>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>Stacked list</h3>
+			<p>Make the list stack once a certain number of avatars is reached to make it look clear and display well regardless of the screen size.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<div class="avatar-list avatar-list-stacked">
+						<span class="avatar">EB</span>
+						<span class="avatar" style="background-image: url(https://placeimg.com/100/100/lion)"></span>
+						<span class="avatar" style="background-image: url(https://placeimg.com/100/100/car)"></span>
+						<span class="avatar" style="background-image: url(https://placeimg.com/100/100/snake)"></span>
+						<span class="avatar" style="background-image: url(https://placeimg.com/100/100/house)"></span>
+						<span class="avatar">+8</span>
+					</div>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>With file uploader</h3>
+			<p>Using Bootstrap’s typical naming structure, you can create a standard avatar or scale it up or down to different sizes based on what you need.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<label class="avatar avatar--xl" x-data="avatar">
+						<input class="avatar__input" type="file" accept=".jpg,.jpeg,.png" x-bind="add"/>
+						<span class="avatar__img"></span>
+						<span class="avatar__close" x-bind="close"></span>
+						EB
+					</label>
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

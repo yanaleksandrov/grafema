@@ -1,0 +1,39 @@
+:root {
+  --grafema-white: #fff;
+
+  --grafema-bg: #f7f7f7;
+  --grafema-bg-hover: #f2f2f2;
+  --grafema-bg-dark: #efefef;
+  --grafema-bg-universal: rgba(142, 142, 142, 0.07);
+  --grafema-bg-active: rgba(134, 134, 134, 0.06);
+
+  --grafema-secondary: #5f6873;
+  --grafema-info: #4299e1;
+  --grafema-warning: #f76707;
+  --grafema-error: #d63939;
+  --grafema-dark: #151d26;
+  --grafema-text-muted: #71777F;
+
+  --grafema-border: #dfe2e3;
+  --grafema-border-hover: #ccced3;
+  --grafema-border-radius: 0.4rem;
+
+  --grafema-link: #206bc4;
+  --grafema-link-hover: #1a569d;
+  --grafema-link-active: #6aeea7;
+
+  --grafema-primary: #206bc4;
+  --grafema-primary-hover: #2e77ce;
+  --grafema-primary-active: #1d60b0;
+
+  --grafema-success: #39b64d;
+  --grafema-success-hover: #51c263;
+  --grafema-success-active: #2eae43;
+
+  --grafema-danger: #d63939;
+  --grafema-danger-hover: #d85757;
+  --grafema-danger-active: #c32e2e;
+
+  --grafema-font-text: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Google Sans", sans-serif;
+  --grafema-font-code: ui-monospace, Consolas, Monaco, monospace;
+}

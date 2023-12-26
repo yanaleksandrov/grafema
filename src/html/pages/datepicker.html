@@ -1,0 +1,20 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+
+	</div>
+	<div class="jb__body">
+		<div class="p-4">
+			<h1>Datepicker</h1>
+			<h2>Simple date</h2>
+			<p>When the mouse hovers, the tooltip box defaults to the top position.</p>
+			<div class="sample">
+				<div class="sample__item">
+					<input type="text" value="2020-03-10" autocomplete="off" x-data="datepicker" x-init="run($el)">
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

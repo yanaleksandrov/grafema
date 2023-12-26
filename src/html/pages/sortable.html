@@ -1,0 +1,46 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+
+	</div>
+	<div class="jb__body p-4">
+		<h1>Sortable drag`n`drop lists</h1>
+		<div class="sample">
+			<div class="sample__item">
+
+				<div class="sortable" x-data="sortable">
+					<div class="sortable__item" data-id="11">
+						<div class="sortable__item"><svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1a1 1 0 11-2 0 1 1 0 012 0zm6 0a1 1 0 11-2 0 1 1 0 012 0zM5 7a1 1 0 11-2 0 1 1 0 012 0zm6 0a1 1 0 11-2 0 1 1 0 012 0zm-6 6a1 1 0 11-2 0 1 1 0 012 0zm6 0a1 1 0 11-2 0 1 1 0 012 0z" fill="#000"/></svg> Item 1.1</div>
+						<div class="sortable">
+							<div class="sortable__item" data-id="21">Item 2.1</div>
+							<div class="sortable__item" data-id="22">Item 2.2
+								<div class="sortable">
+									<div class="sortable__item" data-id="31">Item 3.1</div>
+									<div class="sortable__item" data-id="32">Item 3.2</div>
+									<div class="sortable__item" data-id="33">Item 3.3</div>
+									<div class="sortable__item" data-id="34">Item 3.4</div>
+								</div>
+							</div>
+							<div class="sortable__item" data-id="23">Item 2.3</div>
+							<div class="sortable__item" data-id="24">Item 2.4</div>
+						</div>
+					</div>
+					<div class="sortable__item" data-id="12">Item 1.2</div>
+					<div class="sortable__item" data-id="13">Item 1.3</div>
+					<div class="sortable__item" data-id="14">Item 1.4
+						<div class="sortable">
+							<div class="sortable__item" data-id="25">Item 2.1</div>
+							<div class="sortable__item" data-id="26">Item 2.2</div>
+							<div class="sortable__item" data-id="27">Item 2.3</div>
+							<div class="sortable__item" data-id="28">Item 2.4</div>
+						</div>
+					</div>
+					<div class="sortable__item" data-id="15">Item 1.5</div>
+				</div>
+
+			</div>
+			<div class="sample__code">
+			</div>
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

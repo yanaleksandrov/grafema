@@ -1,0 +1,107 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+
+	<div class="jb__body">
+		<div class="p-4">
+			<h2>Cards</h2>
+			<div class="t-muted t-hint mb-4">wraps elements in a container</div>
+
+			<p>Cards are flexible user interface elements, which help organize content into meaningful sections and make it easier to display on different screen sizes. Cards contain various smaller components, such as images, text, links and buttons and may act as an entry to more detailed information, helping users scan the page quickly and find the most relevant content.</p>
+
+			<h3>Simple card without border</h3>
+			<p>Use the <code>.card</code> and <code>.card-body</code> classes to create a card and use it as the basis for a more advanced card design. A card is a perfect way to organize content and make it look neat and tidy.</p>
+			<div class="sample">
+				<div class="sample__item bg">
+
+					<div class="card">
+						<div class="card-body">
+							<p>This is some text within a card body.</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>With title and hover effect</h3>
+			<p>Add a title to your card by including the .card-title class within .card-body. You can also place the title inside the .card-header element to separate the title from the content with a horizontal line.</p>
+			<div class="sample">
+				<div class="sample__item bg">
+
+					<div class="card card-border-hover">
+						<div class="card-header">
+							<h3 class="card-title">Card title</h3>
+						</div>
+						<div class="card-body">
+							<p>This is some text within a card body.</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>With delimeter</h3>
+			<div class="sample">
+				<div class="sample__item bg">
+
+					<div class="card card-border-hover">
+						<div class="card-body">
+							<h2 class="card-title">Welcome to Tabler!</h2>
+							<p>Tabler comes with tons of well-designed components and features. Start your adventure with Tabler and make your dashboard great again.</p>
+						</div>
+						<div class="card-hr">your data</div>
+						<div class="card-body">
+							<p>This is some text within a card body.</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+			<h3>With image</h3>
+			<div class="sample">
+				<div class="sample__item bg">
+
+					<div class="card card-border-hover">
+						<div class="card-img" style="background-image: url(https://via.placeholder.com/600x200?text=IMG)"></div>
+						<div class="card-body">
+							<h2 class="card-title">Welcome to Tabler!</h2>
+							<p>Tabler comes with tons of well-designed components and features. Start your adventure with Tabler and make your dashboard great again.</p>
+						</div>
+						<div class="card-hr">your data</div>
+						<div class="card-body">
+							<p>This is some text within a card body.</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+
+
+			<h3>Stacked card</h3>
+			<p>Use the <code>card-stacked</code> class to stack up multiple cards, if you want to save screen space or create a visually appealing effect.</p>
+			<div class="sample">
+				<div class="sample__item bg">
+
+					<div class="card card-border-stacked-hover">
+						<div class="card-body">
+							<h2 class="card-title">Welcome to Tabler!</h2>
+							<p>Tabler comes with tons of well-designed components and features. Start your adventure with Tabler and make your dashboard great again.</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="sample__code">
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%= _.template(require('./../parts/footer.html').default)(data) %>

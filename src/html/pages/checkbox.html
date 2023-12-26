@@ -1,0 +1,23 @@
+<% var data = { title: "Checkbox" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<p>
+		Use checkboxes to toggle between checked and unchecked states in a list or as a standalone form field.
+	</p>
+
+	<h2>Checkbox</h2>
+	<p></p>
+	<div class="sample">
+		<div class="sample__item">
+			<label class="d-flex aic">
+				<input type="checkbox" name="box"> <span>Item 1</span>
+			</label>
+			<label class="d-flex aic">
+				<input type="checkbox" name="box"> <span>Item 1</span>
+			</label>
+			<p><input type="checkbox" name="box"> Item 2</p>
+			<p><input class="disabled" type="checkbox" name="box"> Item 3 (disabled)</p>
+		</div>
+		<div class="sample__code">
+		</div>
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

@@ -1,0 +1,118 @@
+<% var data = { title: "Tabs" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__body">
+		<h2>Horizontal tabs</h2>
+		<p>Use <code>class="icon"</code> to declare the icon and set the proper classname.</p>
+		<div class="sample">
+			<div class="sample__item">
+				<!-- tabs start -->
+				<div class="tab" x-data="{ tab: 0 }">
+					<div class="tab__nav">
+						<div @click="tab = 0" :class="{ 'active': tab === 0 }" class="tab__title">Bike</div>
+						<div @click="tab = 1" :class="{ 'active': tab === 1 }" class="tab__title">Car</div>
+						<div @click="tab = 2" :class="{ 'active': tab === 2 }" class="tab__title">Gift</div>
+					</div>
+					<div class="tab__box">
+						<div x-show="tab === 0" class="tab__content">
+							<p>Content of Tab Pane 1</p>
+						</div>
+						<div x-show="tab === 1" class="tab__content" x-cloak>
+							<p>Content of Tab Pane 2</p>
+						</div>
+						<div x-show="tab === 2" class="tab__content" x-cloak>
+							<p>Content of Tab Pane 3</p>
+						</div>
+					</div>
+				</div>
+				<!-- tabs end -->
+			</div>
+			<div class="sample__code">
+			</div>
+		</div>
+
+		<h2>Tabs with icons and disabled item</h2>
+		<p>Use <code>class="icon"</code> to declare the icon and set the proper classname.</p>
+		<div class="sample">
+			<div class="sample__item">
+				<!-- tabs start -->
+				<div class="tab" x-data="{ tab: 0 }">
+					<div class="tab__nav">
+						<div @click="tab = 0" :class="{ 'active': tab === 0 }" class="tab__title"><i class="ph ph-person-simple-bike"></i> Bike</div>
+						<div @click="tab = 1" :class="{ 'active': tab === 1 }" class="tab__title"><i class="ph ph-car"></i> Car</div>
+						<div @click="tab = 2" :class="{ 'active': tab === 2 }" class="tab__title disabled"><i class="ph ph-gift"></i> Gift</div>
+					</div>
+					<div x-show="tab === 0" class="tab__content">
+						<p>Content of Tab Pane 1</p>
+					</div>
+					<div x-show="tab === 1" class="tab__content" x-cloak>
+						<p>Content of Tab Pane 2</p>
+					</div>
+					<div x-show="tab === 2" class="tab__content" x-cloak>
+						<p>Content of Tab Pane 3</p>
+					</div>
+				</div>
+				<!-- tabs end -->
+			</div>
+			<div class="sample__code">
+			</div>
+		</div>
+
+		<h2>Buttons like tabs</h2>
+		<div class="sample">
+			<div class="sample__item">
+				<!-- tabs start -->
+				<div class="tab tab--btn" x-data="{ tab: 0 }">
+					<div class="tab__nav">
+						<div @click="tab = 0" :class="{ 'active': tab === 0 }" class="tab__title"><i class="ph ph-person-simple-bike"></i> Bike</div>
+						<div @click="tab = 1" :class="{ 'active': tab === 1 }" class="tab__title"><i class="ph ph-car"></i> Car</div>
+						<div @click="tab = 2" :class="{ 'active': tab === 2 }" class="tab__title"><i class="ph ph-gift"></i> Gift</div>
+					</div>
+					<div x-show="tab === 0" class="tab__content">
+						<p>Content of Tab Pane 1</p>
+					</div>
+					<div x-show="tab === 1" class="tab__content" x-cloak>
+						<p>Content of Tab Pane 2</p>
+					</div>
+					<div x-show="tab === 2" class="tab__content" x-cloak>
+						<p>Content of Tab Pane 3</p>
+					</div>
+				</div>
+				<!-- tabs end -->
+			</div>
+			<div class="sample__code">
+			</div>
+		</div>
+
+		<h2>Vertical tabs</h2>
+		<p>Use <code>class="icon"</code> to declare the icon and set the proper classname.</p>
+		<div class="sample">
+			<div class="sample__item">
+				<!-- tabs start -->
+				<div class="tab tab--vertical" x-data="{ tab: 0 }">
+					<div class="tab__nav">
+						<div @click="tab = 0" :class="{ 'active': tab === 0 }" class="tab__title">
+							<div class="df aic t-dark"><i class="ph ph-chats-circle fs-16 mr-2"></i> Discussions</div>
+							<div class="t-muted fw-400 fs-13 pl-6">comments &amp; chat settings</div>
+						</div>
+						<div @click="tab = 1" :class="{ 'active': tab === 1 }" class="tab__title">
+							<div class="df aic t-dark"><i class="ph ph-camera fs-16 mr-2"></i> Storage</div>
+							<div class="t-muted fw-400 fs-13 pl-6">media options</div>
+						</div>
+					</div>
+					<div x-show="tab === 0" class="tab__content">
+						<p>Content of Tab Pane 1<br><br><br><br><br><br><br><br><br><br>text</p>
+					</div>
+					<div x-show="tab === 1" class="tab__content" x-cloak>
+						<p>Content of Tab Pane 2</p>
+					</div>
+				</div>
+				<!-- tabs end -->
+			</div>
+			<div class="sample__code">
+			</div>
+		</div>
+	</div>
+	<div class="jb__aside">
+
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>

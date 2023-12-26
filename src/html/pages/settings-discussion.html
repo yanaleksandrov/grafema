@@ -1,0 +1,83 @@
+<% var data = { title: "Buttons" }; %>
+<%= _.template(require('./../parts/header.html').default)(data) %>
+	<div class="jb__filter">
+		<a href="settings.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>General</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+		<a href="settings-writing.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>Writing</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+		<a href="settings-reading.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>Reading</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+		<a href="settings-discussion.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>Discussion</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+		<a href="settings-storage.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>Storage</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+		<a href="settings-permalinks.html" class="d-block px-4 py-3 bb">
+			<div class="t-body fw-500"><i class="icon-plugin mr-2"></i>Permalinks</div>
+			<div class="t-hint t-muted">Main settings</div>
+		</a>
+	</div>
+	<div class="jb__body">
+		<form class="w-100 p-4 d-grid gap-4" action="." method="get" autocomplete="off">
+			<div class="ga-12">
+				<div class="fw-500">Default post settings</div>
+				<div class="t-hint t-muted mt-2 pb-3">
+					These settings may be overridden for individual posts.
+				</div>
+				<div class="d-flex aic mt-3">
+					<label class="d-flex aic">
+						<input type="checkbox" name="item"> Attempt to notify any blogs linked to from the post
+					</label>
+				</div>
+				<div class="d-flex aic mt-3">
+					<label class="d-flex aic">
+						<input type="checkbox" name="item"> Allow link notifications from other blogs (pingbacks and trackbacks) on new posts
+					</label>
+				</div>
+				<div class="d-flex aic mt-3">
+					<label class="d-flex aic">
+						<input type="checkbox" name="item"> Allow people to submit comments on new posts
+					</label>
+				</div>
+			</div>
+			<div class="ga-12">
+				<div class="fw-500">Other comment settings</div>
+				<div class="d-flex aic mt-3">
+					<label class="d-flex aic">
+						<input type="checkbox" name="item"> Comment author must fill out name and email
+					</label>
+				</div>
+				<div class="d-flex aic mt-3">
+					<label class="d-flex aic">
+						<input type="checkbox" name="item"> Users must be registered and logged in to comment
+					</label>
+				</div>
+				<div class="d-flex aic mt-3">
+					<label class="d-flex aic">
+						<input type="checkbox" name="item"> Automatically close comments on posts older than <input type="number" name="email" value="14" class="mx-2 mw-50x1"> days
+					</label>
+				</div>
+				<div class="d-flex aic mt-3">
+					<label class="d-flex aic">
+						<input type="checkbox" name="item"> Show comments cookies opt-in checkbox, allowing comment author cookies to be set
+					</label>
+				</div>
+			</div>
+			<div class="ga-12">
+				<button type="submit" class="btn btn-primary"><i class="icon-send"></i>Save settings</button>
+			</div>
+		</form>
+	</div>
+	<div class="jb__aside">
+
+	</div>
+<%= _.template(require('./../parts/footer.html').default)(data) %>
