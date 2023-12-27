@@ -16,7 +16,7 @@ if ( ! defined( 'GRFM_PATH' ) ) {
 }
 
 [$label, $name, $value, $placeholder, $class, $instruction, $tooltip, $copy, $attributes, $conditions, $switcher, $indicator, $generator, $characters] = array_values(
-	( new Grafema\Sanitizer() )->apply(
+	(new Grafema\Sanitizer())->apply(
 		$args ?? [],
 		[
 			'label'       => 'trim',
@@ -39,7 +39,6 @@ if ( ! defined( 'GRFM_PATH' ) ) {
 
 $attributes = [
 	...$attributes,
-	'name'          => $name,
 	':type'         => "show ? 'password' : 'text'",
 	'@input.window' => 'data = $password.check(' . $name . ')',
 ];
@@ -86,14 +85,14 @@ if ( $copy ) {
 
 	<?php if ( ! empty( $characters ) ) { ?>
 		<div class="dg g-2 gtc-2 t-muted fs-13 mt-3 lh-xs">
-			<?php
-			$messages = [
-				'lowercase' => I18n::__( '%d lowercase letters' ),
-				'uppercase' => I18n::__( '%d uppercase letters' ),
-				'special'   => I18n::__( '%d special characters' ),
-				'length'    => I18n::__( '%d characters minimum' ),
-				'digit'     => I18n::__( '%d numbers' ),
-			];
+		<?php
+		$messages = [
+			'lowercase' => I18n::__( '%d lowercase letters' ),
+			'uppercase' => I18n::__( '%d uppercase letters' ),
+			'special'   => I18n::__( '%d special characters' ),
+			'length'    => I18n::__( '%d characters minimum' ),
+			'digit'     => I18n::__( '%d numbers' ),
+		];
 
 		foreach ( $characters as $character => $count ) {
 			if ( empty( $character ) || empty( $messages[$character] ) || $count <= 0 ) {

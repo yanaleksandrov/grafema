@@ -1,9 +1,9 @@
 <?php
 use Grafema\Esc;
-use Grafema\I18n;
 use Grafema\Helpers\Arr;
+use Grafema\I18n;
 
-/**
+/*
  * Input field
  *
  * This template can be overridden by copying it to themes/yourtheme/dashboard/templates/fields/input.php
@@ -16,8 +16,8 @@ if ( ! defined( 'GRFM_PATH' ) ) {
 }
 
 [$label, $name, $value, $placeholder, $class, $reset, $before, $after, $instruction, $tooltip, $copy, $attributes, $conditions] = array_values(
-	( new Grafema\Sanitizer() )->apply(
-		$args,
+	(new Grafema\Sanitizer())->apply(
+		$args ?? [],
 		[
 			'label'       => 'trim',
 			'name'        => 'key',
@@ -39,26 +39,26 @@ if ( ! defined( 'GRFM_PATH' ) ) {
 ?>
 <div class="dg g-1">
 	<label class="dg g-1">
-		<?php if ( $label ) : ?>
+		<?php if ( $label ) { ?>
 			<span class="<?php echo $class; ?>"><?php Esc::html( $label ); ?></span>
-		<?php endif; ?>
+		<?php } ?>
 		<span class="field">
 			<?php
 			printf( '%s<input%s>%s', $before, Arr::toHtmlAtts( $attributes ), $after );
-			if ( $copy ) :
-				?>
+if ( $copy ) {
+	?>
 				<i class="ph ph-copy" title="<?php Esc::attr( I18n::__( 'Copy' ) ); ?>" @click="$copy(<?php echo $name; ?>.value)"></i>
 				<?php
-			endif;
-			if ( $tooltip ) :
-				?>
+}
+if ( $tooltip ) {
+	?>
 				<i class="ph ph-info" x-tooltip.click.prevent="'<?php echo $tooltip; ?>'"></i>
 				<?php
-			endif;
-			?>
+}
+?>
 		</span>
 	</label>
-	<?php if ( $instruction ) : ?>
+	<?php if ( $instruction ) { ?>
 		<div class="fs-13 t-muted lh-xs"><?php Esc::html( $instruction ); ?></div>
-	<?php endif; ?>
+	<?php } ?>
 </div>
