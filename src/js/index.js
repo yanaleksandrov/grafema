@@ -535,7 +535,8 @@ document.addEventListener( 'alpine:init', () => {
 	 * @since 1.0
 	 * @see based on https://github.com/glhd/alpine-wizard
 	 */
-	Alpine.directive("wizard", (el, { value, expression, modifiers }, { Alpine: Alpine2, evaluate, cleanup }) => {
+	Alpine.directive("wizard", (el, { value, expression, modifiers }, { Alpine: Alpine2, evaluate, cleanup } = Alpine) => {
+		console.log(Alpine)
 		const wizard2 = getWizard(el, Alpine2);
 		const step = wizard2.getStep(el);
 		cleanup(() => step.cleanup());
@@ -1325,20 +1326,6 @@ document.addEventListener( 'alpine:init', () => {
 			console.error('The SlimSelect library is not connected');
 		}
 	});
-
-	/**
-	 * Advanced drag & drop based on slimselect library.
-	 *
-	 * @see   https://github.com/bevacqua/dragula
-	 * @since 1.0
-	 */
-	Alpine.directive(
-		'media',
-		(el, {expression}) => {
-			console.log(el)
-			//dragula([el]);
-		}
-	);
 
 	/**
 	 * Custom fields builder.
