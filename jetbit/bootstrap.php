@@ -16,11 +16,11 @@ use Grafema\I18n;
 use Grafema\Is;
 use Grafema\Part;
 use Grafema\Plugins;
+use Grafema\Post;
 use Grafema\Route;
 use Grafema\Url;
 use Grafema\User;
 use Grafema\View;
-use Grafema\Post;
 
 /**
  * Bootstrap file for setting the constants and loading the config.php file.
@@ -280,7 +280,7 @@ class Bootstrap
 					'slug'  => $slug,
 				]
 			);
-			echo ( new Html() )->beautify( ob_get_clean() );
+			echo (new Html())->beautify( ob_get_clean() );
 
 			/*
 			 * Grafema dashboard is fully loaded.
