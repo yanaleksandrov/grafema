@@ -238,23 +238,23 @@ class Dashboard extends Grafema\App\App
 		 *
 		 * @since 1.0.0
 		 */
-		$styles = ['phosphor', 'colorist', 'datepicker', 'drooltip', 'flags', 'nouislider', 'prism', 'slimselect', 'sortable', 'main'];
+		$styles = ['phosphor', 'colorist', 'datepicker', 'drooltip', 'flags', 'prism', 'slimselect', 'main'];
 
 		foreach ( $styles as $style ) {
 			Asset::enqueue( $style, '/dashboard/assets/css/' . $style . '.css', [], '1.5.0' );
 		}
 
-		$scripts = ['index', 'slimselect', 'drooltip', 'alpine.min', 'dragula.min', 'croppr.min', 'prism.min'];
+		$scripts = ['x.min', 'slimselect.min', 'drooltip.min', 'dragula.min', 'croppr.min', 'prism.min'];
 
 		foreach ( $scripts as $script ) {
 			$data = [];
-			if ( $script === 'index' ) {
+			if ( $script === 'x.min' ) {
 				$data['data'] = [
 					'apiurl' => 'https://cms.codyshop.ru/api/v1/',
 				];
 			}
 
-			if ( $script === 'index' ) {
+			if ( $script === 'x.min' ) {
 				// $data['dependencies'] = [ 'dragula-min-js' ];
 			}
 			Asset::enqueue( $script, '/dashboard/assets/js/' . $script . '.js', $data );

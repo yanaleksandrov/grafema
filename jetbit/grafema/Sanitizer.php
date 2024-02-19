@@ -338,7 +338,7 @@ class Sanitizer
 		$value = self::trim( $value );
 
 		// replacing spaces with underscores
-		$str = preg_replace( ['/\s+/', '-'], '_', $value );
+		$str = preg_replace( ['/\s+/', '#-#'], '_', $value );
 		// insert underscores before each capital letter
 		$str = preg_replace( '/(.)(?=[A-Z])/u', '$1_', $str );
 

@@ -535,7 +535,8 @@ document.addEventListener( 'alpine:init', () => {
 	 * @since 1.0
 	 * @see based on https://github.com/glhd/alpine-wizard
 	 */
-	Alpine.directive("wizard", (el, { value, expression, modifiers }, { Alpine: Alpine2, evaluate, cleanup }) => {
+	Alpine.directive("wizard", (el, { value, expression, modifiers }, { Alpine: Alpine2, evaluate, cleanup } = Alpine) => {
+		console.log(Alpine)
 		const wizard2 = getWizard(el, Alpine2);
 		const step = wizard2.getStep(el);
 		cleanup(() => step.cleanup());
@@ -1327,20 +1328,6 @@ document.addEventListener( 'alpine:init', () => {
 	});
 
 	/**
-	 * Advanced drag & drop based on slimselect library.
-	 *
-	 * @see   https://github.com/bevacqua/dragula
-	 * @since 1.0
-	 */
-	Alpine.directive(
-		'media',
-		(el, {expression}) => {
-			console.log(el)
-			//dragula([el]);
-		}
-	);
-
-	/**
 	 * Custom fields builder.
 	 *
 	 * @since 1.0
@@ -1475,107 +1462,6 @@ document.addEventListener( 'alpine:init', () => {
 			},
 		}
 	} ) )
-
-	/**
-	 * Password
-	 *
-	 * @since 1.0
-	 */
-	Alpine.magic('password', () => {
-		return {
-			min: {
-				lowercase: 2,
-				uppercase: 2,
-				special: 2,
-				digit: 2,
-				length: 12
-			},
-			valid: {
-				lowercase: false,
-				uppercase: false,
-				special: false,
-				digit: false,
-				length: false
-			},
-			charsets: {
-				lowercase: 'abcdefghijklmnopqrstuvwxyz',
-				uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-				special: '!@#$%^&*(){|}~',
-				digit: '0123456789'
-			},
-			switch(value) {
-				return !(!!value);
-			},
-			check(value) {
-				let matchCount = 0;
-				let totalCount = 0;
-
-				for (const charset in this.charsets) {
-					let requiredCount = this.min[charset],
-						charsetRegex  = new RegExp(`[${this.charsets[charset]}]`, 'g'),
-						charsetCount  = (value.match(charsetRegex) || []).length;
-					matchCount += Math.min(charsetCount, requiredCount);
-					totalCount += requiredCount;
-
-					this.valid[charset] = charsetCount >= requiredCount;
-				}
-
-				if (value.length >= this.min.length) {
-					matchCount += 1;
-					totalCount += 1;
-					this.valid.length = value.length >= this.min.length;
-				}
-
-				return Object.assign(
-					{
-						progress: totalCount === 0 ? totalCount : (matchCount / totalCount) * 100,
-					},
-					this.valid
-				)
-			},
-			generate() {
-				let password = '';
-				let types = Object.keys(this.charsets);
-
-				types.forEach(type => {
-					let count   = Math.max(this.min[type], 0),
-						charset = this.charsets[type];
-
-					for (let i = 0; i < count; i++) {
-						let randomIndex = Math.floor(Math.random() * charset.length);
-						password += charset[randomIndex];
-					}
-				});
-
-				while (password.length < this.min.length) {
-					let randomIndex = Math.floor(Math.random() * types.length),
-						charType    = types[randomIndex],
-						charset     = this.charsets[charType],
-						randomCharIndex = Math.floor(Math.random() * charset.length);
-					password += charset[randomCharIndex];
-				}
-				this.check(password);
-
-				return this.shuffle(password);
-			},
-			shuffle(password) {
-				let array = password.split('');
-				let currentIndex = array.length;
-				let temporaryValue, randomIndex;
-
-				while (currentIndex !== 0) {
-					randomIndex = Math.floor(Math.random() * currentIndex);
-					currentIndex -= 1;
-
-					temporaryValue = array[currentIndex];
-					array[currentIndex] = array[randomIndex];
-					array[randomIndex] = temporaryValue;
-				}
-
-				return array.join('');
-			},
-		}
-	});
 
 	/**
 	 * Counting time in four different units: seconds, minutes, hours and days.

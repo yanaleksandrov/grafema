@@ -1,6 +1,7 @@
 /* X.js MIT license */
 (function() {
     "use strict";
+    var __webpack_exports__ = {};
     function setClasses(el, value) {
         if (Array.isArray(value)) {
             value = value.join(" ");
@@ -24,9 +25,9 @@
         let classes = Object.entries(classObject), split = classString => classString.split(" ").filter(Boolean);
         let forAdd = classes.flatMap((([classString, bool]) => bool ? split(classString) : false)).filter(Boolean);
         let forRemove = classes.flatMap((([classString, bool]) => !bool ? split(classString) : false)).filter(Boolean);
-        const added = forAdd.filter((i => !el.classList.contains(i) && (el.classList.add(i),
+        const added = forAdd.filter((i => !el.classList.contains(i) && (el.classList.add(i), 
         true)));
-        const removed = forRemove.filter((i => el.classList.contains(i) && (el.classList.remove(i),
+        const removed = forRemove.filter((i => el.classList.contains(i) && (el.classList.remove(i), 
         true)));
         return () => {
             removed.forEach((i => el.classList.add(i)));
@@ -323,6 +324,10 @@
                     observers.splice(index, 1);
                 }
             }
+            let target = el;
+            if (modifiers.includes("window")) target = window;
+            if (modifiers.includes("document")) target = document;
+            if (modifiers.includes("outside")) target = document;
             function eventHandler(e) {
                 if (modifiers.includes("prevent")) {
                     e.preventDefault();
@@ -338,7 +343,7 @@
                 debounce((() => {
                     self.runListenerHandler(expression, e);
                     if (modifiers.includes("once")) {
-                        el.removeEventListener(event, eventHandler);
+                        target.removeEventListener(event, eventHandler);
                         if (e instanceof IntersectionObserverEntry) {
                             removeIntersectionObserver(e.target);
                         }
@@ -346,7 +351,7 @@
                 }), wait)();
             }
             if (modifiers.includes("outside")) {
-                document.addEventListener(event, (e => {
+                target.addEventListener(event, (e => {
                     if (el.contains(e.target)) return;
                     if (el.offsetWidth < 1 && el.offsetHeight < 1) return;
                     this.runListenerHandler(expression, e);
@@ -362,7 +367,7 @@
                         observer: observer
                     });
                 } else {
-                    el.addEventListener(event, eventHandler);
+                    target.addEventListener(event, eventHandler);
                 }
             }
         }
@@ -662,6 +667,470 @@
     function convertTo(number) {
         return Math.round(number / BYTES_IN_MB * 100) / 100;
     }
+    method("dispatch", ((e, el) => (name, detail = {}) => {
+        el.dispatchEvent(new CustomEvent(name, {
+            detail: detail,
+            bubbles: true,
+            composed: true,
+            cancelable: true
+        }));
+    }));
+    directive("sticky", ((el, expression, attribute, x, component) => {
+        let style = el.parentElement.currentStyle || window.getComputedStyle(el.parentElement);
+        if (style.position !== "relative") {
+            return false;
+        }
+        let rect = el.getBoundingClientRect();
+        let diff = rect.height - document.scrollingElement.offsetHeight;
+        let paddingTop = parseInt(style.paddingTop) + 42;
+        let paddingBottom = parseInt(style.paddingBottom);
+        let lastScroll = 0;
+        let bottomPoint = 0;
+        let value = "top: " + paddingTop + "px";
+        function calcPosition() {
+            if (diff > 0) {
+                let y = document.scrollingElement.scrollTop;
+                if (window.scrollY > lastScroll) {
+                    if (y > diff) {
+                        bottomPoint = diff * -1 - paddingBottom;
+                        value = "top: " + bottomPoint + "px";
+                    } else {
+                        value = "top: " + (y * -1 - paddingBottom) + "px";
+                    }
+                } else {
+                    bottomPoint = bottomPoint + (lastScroll - window.scrollY);
+                    if (bottomPoint < paddingTop) {
+                        value = "top: " + bottomPoint + "px";
+                    }
+                }
+            }
+            el.setAttribute("style", "position: sticky;" + value);
+            lastScroll = window.scrollY;
+        }
+        [ "load", "scroll", "resize" ].forEach((event => window.addEventListener(event, (() => calcPosition()))));
+    }));
+    directive("autocomplete", ((el, expression, attribute, x, component) => {
+        el.setAttribute("readonly", true);
+        el.onfocus = () => setTimeout((() => el.removeAttribute("readonly")), 10);
+        el.onblur = () => el.setAttribute("readonly", true);
+    }));
+    directive("highlight", ((el, expression, {modifiers: modifiers}, x, component) => {
+        let lang = modifiers[0] || "html", wrapper = document.createElement("code");
+        wrapper.classList.add("language-" + lang);
+        wrapper.innerHTML = el.innerHTML;
+        el.classList.add("line-numbers");
+        el.innerHTML = "";
+        el.setAttribute("data-lang", lang.toUpperCase());
+        el.appendChild(wrapper);
+    }));
+    directive("collapse", ((el, expression, attribute, x, component) => {}));
+    directive("anchor", ((el, expression, attribute, x, component) => {
+        let hash = window.location.hash.replace("#", ""), anchor = el.innerText.toLowerCase().replaceAll(" ", "-");
+        if (hash && hash === anchor) {
+            el.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+        el.addEventListener("click", (e => {
+            e.preventDefault();
+            window.location.hash = anchor;
+            el.scrollIntoView({
+                behavior: "smooth"
+            });
+        }), false);
+        const observer = new IntersectionObserver((entries => {
+            entries.forEach((entry => {
+                if (!entry.isIntersecting || entry.intersectionRatio !== 1) {
+                    return;
+                }
+                window.location.hash = anchor;
+            }));
+        }), {
+            threshold: 1
+        });
+        observer.observe(el);
+    }));
+    directive("listen", ((el, expression, attribute, x, component) => {
+        if (!expression) {
+            return false;
+        }
+        let name = "listen-node";
+        function _play(aud, icn) {
+            icn.classList.add("playing");
+            aud.play();
+            aud.setAttribute("data-playing", "true");
+            aud.addEventListener("ended", (function() {
+                _pause(aud, icn);
+                aud.parentNode.style.background = null;
+                return false;
+            }));
+        }
+        function _pause(aud, icn) {
+            aud.pause();
+            aud.setAttribute("data-playing", "false");
+            icn.classList.remove("playing");
+        }
+        let aud, icn;
+        let css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".listen-node {display: inline-block; background:rgba(0, 0, 0, 0.05); padding: 1px 8px 2px; border-radius:3px; cursor: pointer;} .listen-node i {font-size: 0.65em; border: 0.5em solid transparent; border-left: 0.75em solid; display: inline-block; margin-right: 2px;margin-bottom: 1px;} .listen-node .playing { border: 0; border-left: 0.75em double; border-right: 0.5em solid transparent; height: 1em;}";
+        document.getElementsByTagName("head")[0].appendChild(css);
+        aud = document.createElement("audio");
+        icn = document.createElement("i");
+        aud.src = el.getAttribute("data-src");
+        aud.setAttribute("data-playing", "false");
+        el.id = name + "-" + i;
+        el.insertBefore(icn, el.firstChild);
+        el.appendChild(aud);
+        document.addEventListener("click", (e => {
+            let aud, elm, icn;
+            if (e.target.className === name) {
+                aud = e.target.children[1];
+                elm = e.target;
+                icn = e.target.children[0];
+            } else if (e.target.parentElement && e.target.parentElement.className === name) {
+                aud = e.target.parentElement.children[1];
+                elm = e.target.parentElement;
+                icn = e.target;
+            }
+            if (aud && elm && icn) {
+                aud.srt = parseInt(elm.getAttribute("data-start")) || 0;
+                aud.end = parseInt(elm.getAttribute("data-end")) || aud.duration;
+                if (aud && aud.getAttribute("data-playing") === "false") {
+                    if (aud.srt > aud.currentTime || aud.end < aud.currentTime) {
+                        aud.currentTime = aud.srt;
+                    }
+                    _play(aud, icn);
+                } else {
+                    _pause(aud, icn);
+                }
+                (function loop() {
+                    let d = requestAnimationFrame(loop);
+                    let percent = (aud.currentTime - aud.srt) * 100 / (aud.end - aud.srt);
+                    percent = percent < 100 ? percent : 100;
+                    elm.style.background = "linear-gradient(to right, rgba(0, 0, 0, 0.1)" + percent + "%, rgba(0, 0, 0, 0.05)" + percent + "%)";
+                    if (aud.end < aud.currentTime) {
+                        _pause(aud, icn);
+                        cancelAnimationFrame(d);
+                    }
+                })();
+            }
+        }));
+    }));
+    directive("textarea", ((el, expression, attribute, x, component) => {
+        if ("TEXTAREA" !== el.tagName.toUpperCase()) {
+            return false;
+        }
+        el.addEventListener("input", (() => {
+            let max = parseInt(expression) || 99, rows = parseInt(el.value.split(/\r|\r\n|\n/).length);
+            if (rows > max) {
+                return false;
+            }
+            let styles = getComputedStyle(el, null), border = parseInt(styles.getPropertyValue("border-width")) * 4;
+            el.style.height = "auto";
+            el.style.height = el.scrollHeight + border + 4 + "px";
+        }), false);
+    }));
+    directive("tooltip", ((el, expression, {modifiers: modifiers}, x, component) => {
+        let position, trigger;
+        if (modifiers) {
+            modifiers.forEach((modifier => {
+                position = [ "top", "right", "bottom", "left" ].includes(modifier) ? modifier : "top";
+                trigger = [ "hover", "click" ].includes(modifier) ? modifier : "hover";
+            }));
+        }
+        if (position && trigger) {
+            try {
+                new Drooltip({
+                    element: el,
+                    trigger: trigger,
+                    position: position,
+                    background: "#fff",
+                    color: "var(--grafema-dark)",
+                    animation: "bounce",
+                    content: content || null,
+                    callback: null
+                });
+            } catch (e) {
+                console.warn("You forgot to connect the library Drooltip.js");
+            }
+        }
+    }));
+    directive("progress", ((el, expression, {modifiers: modifiers}, x, component) => {
+        new IntersectionObserver(((entries, observer) => {
+            entries.forEach((entry => {
+                if (entry.isIntersecting) {
+                    let [value = 100, from = 0, to = 100, duration = "0ms"] = modifiers;
+                    let start = parseInt(from) / parseInt(value) * 100;
+                    let end = parseInt(to) / parseInt(value) * 100;
+                    if (start > end) {
+                        [end, start] = [ start, end ];
+                    }
+                    el.style.setProperty("--grafema-progress", (start < 0 ? 0 : start) + "%");
+                    setTimeout((() => {
+                        el.style.setProperty("--grafema-transition", " width " + duration);
+                        el.style.setProperty("--grafema-progress", (end > 100 ? 100 : end) + "%");
+                    }), 500);
+                    observer.unobserve(el);
+                }
+            }));
+        })).observe(el);
+    }));
+    directive("select", ((el, expression, attribute, x, component) => {
+        const settings = {
+            showSearch: false,
+            hideSelected: false,
+            closeOnSelect: true
+        };
+        if (el.hasAttribute("multiple")) {
+            settings.hideSelected = true;
+            settings.closeOnSelect = false;
+        }
+        const custom = JSON.parse(expression || "{}");
+        if (typeof custom === "object") {
+            Object.assign(settings, custom);
+        }
+        try {
+            new SlimSelect({
+                settings: settings,
+                select: el,
+                data: Array.from(el.options).reduce(((acc, option) => {
+                    let image = option.getAttribute("data-image"), icon = option.getAttribute("data-icon"), description = option.getAttribute("data-description") || "";
+                    let images = image ? `<img src="${image}" alt />` : "", icons = icon ? `<i class="${icon}"></i>` : "", descriptions = description ? `<span class="ss-description">${description}</span>` : "", html = `${images}${icons}<span class="ss-text">${option.text}${descriptions}</span>`;
+                    let optionData = {
+                        text: option.text,
+                        value: option.value,
+                        html: html,
+                        selected: option.selected,
+                        display: true,
+                        disabled: false,
+                        mandatory: false,
+                        placeholder: false,
+                        class: "",
+                        style: "",
+                        data: {}
+                    };
+                    if (option.parentElement.tagName === "OPTGROUP") {
+                        const optgroupLabel = option.parentElement.getAttribute("label");
+                        const optgroup = acc.find((item => item.label === optgroupLabel));
+                        if (optgroup) {
+                            optgroup.options.push(optionData);
+                        } else {
+                            acc.push({
+                                label: optgroupLabel,
+                                options: [ optionData ]
+                            });
+                        }
+                    } else {
+                        acc.push(optionData);
+                    }
+                    return acc;
+                }), [])
+            });
+        } catch {
+            console.error("The SlimSelect library is not connected");
+        }
+    }));
+    directive("starter", ((el, expression, attribute, x, component) => {}));
+    method("copy", ((e, el) => subject => {
+        window.navigator.clipboard.writeText(subject).then((() => {
+            let classes = "ph-copy ph-check".split(" ");
+            classes.forEach((s => el.classList.toggle(s)));
+            setTimeout((() => classes.forEach((s => el.classList.toggle(s)))), 1e3);
+        }), (() => {
+            console.log("Your browser is not support clipboard!");
+        }));
+    }));
+    let seconds = 0, isCountingDown = false;
+    method("countdown", (() => ({
+        start: (initialSeconds, processCallback, endCallback) => {
+            if (isCountingDown) {
+                return;
+            }
+            seconds = initialSeconds;
+            isCountingDown = true;
+            function countdown() {
+                processCallback && processCallback(true);
+                if (seconds === 0) {
+                    endCallback && endCallback(true);
+                    isCountingDown = false;
+                } else {
+                    seconds--;
+                    setTimeout(countdown, 1e3);
+                }
+            }
+            countdown();
+        },
+        second: seconds
+    })));
+    let stream = null;
+    method("stream", (() => ({
+        check(refs) {
+            let canvas = refs.canvas, video = refs.video, image = refs.image;
+            if (!canvas) {
+                console.error("Canvas element is undefined");
+                return false;
+            }
+            if (!video) {
+                console.error("Video for selfie preview is undefined");
+                return false;
+            }
+            if (!image) {
+                console.error("Image for output selfie is undefined");
+                return false;
+            }
+        },
+        isVisible(element) {
+            const styles = window.getComputedStyle(element);
+            if (styles) {
+                return !(styles.visibility === "hidden" || styles.display === "none" || parseFloat(styles.opacity) === 0);
+            }
+            return false;
+        },
+        start(refs) {
+            let video = refs.video;
+            const observer = new MutationObserver((mutations => {
+                for (let mutation of mutations) {
+                    if (mutation.target === document.body && !stream) {
+                        setTimeout((async () => {
+                            if (this.isVisible(video)) {
+                                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                                    video.srcObject = stream = await navigator.mediaDevices.getUserMedia({
+                                        video: true
+                                    });
+                                } else {
+                                    console.error("The browser does not support the getUserMedia API");
+                                }
+                            }
+                        }), 500);
+                    }
+                }
+            }));
+            observer.observe(document, {
+                childList: true,
+                subtree: true,
+                attributes: true
+            });
+        },
+        snapshot(refs) {
+            this.check(refs);
+            this.start(refs);
+            let canvas = refs.canvas, video = refs.video, image = refs.image;
+            let width = video.offsetWidth, height = video.offsetHeight;
+            let imageStyles = window.getComputedStyle(image), imageWidth = parseInt(imageStyles.width, 10), imageHeight = parseInt(imageStyles.height, 10);
+            canvas.width = imageWidth;
+            canvas.height = imageHeight;
+            let offsetTop = (height - imageHeight) / 2, offsetLeft = (width - imageWidth) / 2;
+            let ctx = canvas.getContext("2d");
+            ctx.imageSmoothingQuality = "low";
+            let scale = height / imageHeight;
+            console.log((offsetTop + offsetLeft) / 2);
+            ctx.drawImage(video, offsetLeft * 1.5, offsetTop * 1.5, height * 1.5, height * 1.5, 0, 0, imageWidth, imageHeight);
+            let imageData = canvas.toDataURL("image/png");
+            if (imageData) {
+                image.src = imageData;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            return imageData;
+        },
+        stop() {
+            if (stream) {
+                stream.getTracks().forEach((track => track.stop()));
+            }
+            stream = null;
+        }
+    })));
+    method("password", (() => ({
+        min: {
+            lowercase: 2,
+            uppercase: 2,
+            special: 2,
+            digit: 2,
+            length: 12
+        },
+        valid: {
+            lowercase: false,
+            uppercase: false,
+            special: false,
+            digit: false,
+            length: false
+        },
+        charsets: {
+            lowercase: "abcdefghijklmnopqrstuvwxyz",
+            uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            special: "!@#$%^&*(){|}~",
+            digit: "0123456789"
+        },
+        switch(value) {
+            return !!!value;
+        },
+        check(value) {
+            let matchCount = 0;
+            let totalCount = 0;
+            for (const charset in this.charsets) {
+                let requiredCount = this.min[charset], charsetRegex = new RegExp(`[${this.charsets[charset]}]`, "g"), charsetCount = (value.match(charsetRegex) || []).length;
+                matchCount += Math.min(charsetCount, requiredCount);
+                totalCount += requiredCount;
+                this.valid[charset] = charsetCount >= requiredCount;
+            }
+            if (value.length >= this.min.length) {
+                matchCount += 1;
+                totalCount += 1;
+                this.valid.length = value.length >= this.min.length;
+            }
+            return Object.assign({
+                progress: totalCount === 0 ? totalCount : matchCount / totalCount * 100
+            }, this.valid);
+        },
+        generate() {
+            let password = "", types = Object.keys(this.charsets);
+            types.forEach((type => {
+                let count = Math.max(this.min[type], 0), charset = this.charsets[type];
+                for (let i = 0; i < count; i++) {
+                    let randomIndex = Math.floor(Math.random() * charset.length);
+                    password += charset[randomIndex];
+                }
+            }));
+            while (password.length < this.min.length) {
+                let randomIndex = Math.floor(Math.random() * types.length), charType = types[randomIndex], charset = this.charsets[charType], randomCharIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomCharIndex];
+            }
+            this.check(password);
+            return this.shuffle(password);
+        },
+        shuffle(password) {
+            let array = password.split("");
+            let currentIndex = array.length;
+            let temporaryValue, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+            return array.join("");
+        }
+    })));
+    method("modal", ((e, el) => ({
+        open: (id, animation) => {
+            setTimeout((() => {
+                let modal = document.getElementById(id);
+                if (modal) {
+                    modal.classList.add("is-active", animation || "fade");
+                }
+                document.body.style.overflow = "hidden";
+            }), 25);
+        },
+        close: animation => {
+            let modal = el.closest(".modal");
+            if (modal !== null && modal.classList.contains("is-active")) {
+                modal.classList.remove("is-active", animation || "fade");
+                document.body.style.overflow = "";
+            }
+        }
+    })));
+    method("default", ((e, el) => (url, options = {}, callback) => {}));
     window.x = scripts_x;
     window.x.start();
 })();

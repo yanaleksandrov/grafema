@@ -224,8 +224,7 @@ class Form {
 				};
 				$field['attributes'] = array_merge(
 					[
-						'name'         => $name,
-						'x-model.fill' => $name,
+						"x.$name" => 'prop',
 					],
 					$field['attributes']
 				);

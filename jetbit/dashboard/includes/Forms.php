@@ -225,6 +225,7 @@ final class Forms
 							'attributes' => [
 								'class'     => 'btn btn--primary',
 								'disabled'  => '',
+								'@load'     => 'console.log(login, password)',
 								':disabled' => '!login.trim() || !password.trim()',
 							],
 						],
@@ -340,7 +341,7 @@ final class Forms
 			'reset/password',
 			[
 				'class'           => 'card card-border g-6 p-8',
-				'x-data'          => '{email: ""}',
+				'x-data'          => '',
 				'@submit.prevent' => '$ajax("reset/password")',
 			],
 			function ( $form ) {
